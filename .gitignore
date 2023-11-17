@@ -50,3 +50,43 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+# MPLAB X IDE
+.nbproject/
+/nbproject/private/
+/nbproject/Makefile-*
+/dist/
+/build/
+
+# Generated files
+*.hex
+*.cof
+*.elf
+*.o
+*.lst
+*.lss
+*.map
+*.sym
+
+# User-specific settings
+nbproject/configurations.xml
+
+# Ignore MPLAB X IDE files
+.mchp_p16/
+.mchp_p24/
+.mchp_p32/
+nbproject/
+
+
+
+
+
+
+
+
+
+
+
+
+
