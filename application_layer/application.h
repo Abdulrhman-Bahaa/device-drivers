@@ -29,7 +29,6 @@
  *              application's interfaces
  * @return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
 */
-Std_ReturnType application_initialize();
+Std_ReturnType application_initialize(void);
 
 #endif	/* APPLICATION_H */
-

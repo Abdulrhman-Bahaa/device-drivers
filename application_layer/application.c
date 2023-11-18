@@ -12,7 +12,7 @@
 /* Variables Definitions ----------------------------------------------------*/
 
 /* Main Function ------------------------------------------------------------*/
-int main() {
+int main(void) {
     Std_ReturnType ret = E_OK;
     ret = application_initialize();
     while(1) {
@@ -26,7 +26,7 @@ int main() {
  *              application's interfaces
  * @return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
 */
-Std_ReturnType application_initialize() {
+Std_ReturnType application_initialize(void) {
     Std_ReturnType ret = E_OK;
     return ret;
 }
