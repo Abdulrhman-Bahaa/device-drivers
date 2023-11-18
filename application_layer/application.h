@@ -13,7 +13,7 @@
 #define	APPLICATION_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../MCA_layer/hal_std_types.h"     /**< Std_ReturnType, uint8, etc..*/
+#include "../config/std_types.h"     /**< Std_ReturnType, uint8, etc..*/
 
 /* Macro Declarations -------------------------------------------------------*/
 
