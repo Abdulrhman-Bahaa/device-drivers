@@ -17,7 +17,7 @@ int main(void) {
     ret = application_initialize();
     while(1) {
     }
-    return 0;
+    return (EXIT_SUCCESS);
 }
 
 /* Functions Implementations -------------------------------------------------*/

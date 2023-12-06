@@ -14,6 +14,7 @@
 
 /* Includes -----------------------------------------------------------------*/
 #include "../config/std_types.h"     /**< Std_ReturnType, uint8, etc..*/
+#include "../MCAL_layer/GPIO_module/hal_gpio.h"
 
 /* Macro Declarations -------------------------------------------------------*/
 
