@@ -5,8 +5,6 @@
  * @brief      This source file contains the implementations for char lcd 
  *	       interfaces
  * @date       2023-12-06
- * @details    This source file contains the implementations for char lcd 
- *	       interfaces
  ******************************************************************************
 */
 #include "ecu_char_lcd.h"
@@ -27,7 +25,7 @@ Std_ReturnType ecu_char_lcd_enable_pulse(const char_lcd_t* char_lcd) {
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_send_data(const char_lcd_t* char_lcd, uint8 to_send_data, logic_t rs_pin) {
+Std_ReturnType ecu_char_lcd_send_data(const char_lcd_t* char_lcd, uint8_t to_send_data, logic_t rs_pin) {
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;
@@ -42,7 +40,7 @@ Std_ReturnType ecu_char_lcd_send_data(const char_lcd_t* char_lcd, uint8 to_send_
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_send_instruction(const char_lcd_t* char_lcd, uint8 instruction ) {
+Std_ReturnType ecu_char_lcd_send_instruction(const char_lcd_t* char_lcd, uint8_t instruction ) {
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;
@@ -53,7 +51,7 @@ Std_ReturnType ecu_char_lcd_send_instruction(const char_lcd_t* char_lcd, uint8 i
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_write_char(const char_lcd_t* char_lcd, uint8 row, uint8 column, uint8 character) {
+Std_ReturnType ecu_char_lcd_write_char(const char_lcd_t* char_lcd, uint8_t row, uint8_t column, uint8_t character) {
      Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;
@@ -65,7 +63,7 @@ Std_ReturnType ecu_char_lcd_write_char(const char_lcd_t* char_lcd, uint8 row, ui
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_write_string(char_lcd_t* char_lcd, uint8 row, uint8 column, char string[]) {
+Std_ReturnType ecu_char_lcd_write_string(char_lcd_t* char_lcd, uint8_t row, uint8_t column, char string[]) {
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;
@@ -81,13 +79,13 @@ Std_ReturnType ecu_char_lcd_write_string(char_lcd_t* char_lcd, uint8 row, uint8 
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_set_cursor(const char_lcd_t* char_lcd, uint8 row, uint8 column) {
+Std_ReturnType ecu_char_lcd_set_cursor(const char_lcd_t* char_lcd, uint8_t row, uint8_t column) {
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd || row > 4 || column > 20) {
         ret = E_NOT_OK;
     }
     else {
-        uint8 cursor_address;
+        uint8_t cursor_address;
         column--;
         switch(row) {
             case 1:
@@ -111,7 +109,7 @@ Std_ReturnType ecu_char_lcd_set_cursor(const char_lcd_t* char_lcd, uint8 row, ui
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_set_cgram_address(char_lcd_t* char_lcd, uint8 custom_char_address){
+Std_ReturnType ecu_char_lcd_set_cgram_address(char_lcd_t* char_lcd, uint8_t custom_char_address){
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;
@@ -122,13 +120,13 @@ Std_ReturnType ecu_char_lcd_set_cgram_address(char_lcd_t* char_lcd, uint8 custom
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_add_custom_char(const char_lcd_t* char_lcd, uint8 custom_char_posn, uint8 custom_char[]) {
+Std_ReturnType ecu_char_lcd_add_custom_char(const char_lcd_t* char_lcd, uint8_t custom_char_posn, uint8_t custom_char[]) {
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;
     }
     else {
-        uint8 custom_char_address = 0x40 + (custom_char_posn << 3);
+        uint8_t custom_char_address = 0x40 + (custom_char_posn << 3);
         ret = ecu_char_lcd_set_cgram_address(char_lcd, custom_char_address);
         
         for (int row_number = 0; row_number < 8; row_number++) {
@@ -145,7 +143,7 @@ Std_ReturnType ecu_char_lcd_add_custom_char(const char_lcd_t* char_lcd, uint8 cu
     return ret;
 }
 
-Std_ReturnType ecu_char_lcd_initialize(const char_lcd_t* char_lcd, const uint8 function_set_command, const uint8 display_control_command) {
+Std_ReturnType ecu_char_lcd_initialize(const char_lcd_t* char_lcd, const uint8_t function_set_command, const uint8_t display_control_command) {
     Std_ReturnType ret = E_OK;
     if (NULL == char_lcd) {
         ret = E_NOT_OK;

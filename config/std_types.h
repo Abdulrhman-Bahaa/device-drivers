@@ -27,10 +27,9 @@
 /* Macro Functions Declarations ---------------------------------------------*/
 
 /* Data Type Declarations ---------------------------------------------------*/
-typedef unsigned char    uint8;
-typedef unsigned short   uint16;
-typedef unsigned int     uint32;
-typedef uint8            Std_ReturnType;
+typedef unsigned char    uint8_t;
+typedef unsigned short   uint16_t;
+typedef uint8_t          Std_ReturnType;
 
 /* Variables Declarations ---------------------------------------------------*/
 

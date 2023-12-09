@@ -5,15 +5,13 @@
  * @brief      This header file includes header files from ECUA_layer and
  *             function declaration.
  * @date       2023-11-18
- * @details    This header file includes header files from ECUA_layer and
- *             function declaration.
  ******************************************************************************
 */
 #ifndef APPLICATION_H
 #define	APPLICATION_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../config/std_types.h"     /**< Std_ReturnType, uint8, etc..*/
+#include "../config/std_types.h"     /**< Std_ReturnType, uint8_t, etc..*/
 #include "../ECUAL/char_lcd/ecu_char_lcd.h"
 
 /* Macro Declarations -------------------------------------------------------*/

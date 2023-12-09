@@ -4,7 +4,6 @@
  * @author     Abdulrhman Bahaa
  * @brief      This header file includes declarations for gpio module
  * @date       2023-12-05
- * @details    This header file includes declarations for gpio module
  ******************************************************************************
 */
 #ifndef HAL_GPIO_H

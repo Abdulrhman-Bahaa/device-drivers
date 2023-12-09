@@ -5,8 +5,6 @@
  * @brief      This header file contains the declarations for char lcd 
  *	       interfaces
  * @date       2023-12-06
- * @details    This header file contains the declarations for char lcd 
- *	       interfaces
  ******************************************************************************
 */
 #ifndef ECU_CHAR_LCD_H
@@ -40,13 +38,13 @@ typedef struct {
 
 /* Functions Declarations ---------------------------------------------------*/
 Std_ReturnType ecu_char_lcd_enable_pulse(const char_lcd_t* char_lcd);
-Std_ReturnType ecu_char_lcd_send_data(const char_lcd_t* char_lcd, uint8 to_send_data, logic_t rs_pin);
-Std_ReturnType ecu_char_lcd_send_instruction(const char_lcd_t* char_lcd, uint8 instruction );
-Std_ReturnType ecu_char_lcd_write_char(const char_lcd_t* char_lcd, uint8 row, uint8 column, uint8 character);
-Std_ReturnType ecu_char_lcd_write_string(char_lcd_t* char_lcd, uint8 row, uint8 column, char string[]);
-Std_ReturnType ecu_char_lcd_set_cursor(const char_lcd_t* char_lcd, uint8 row, uint8 column);
-Std_ReturnType ecu_char_lcd_set_cgram_address(char_lcd_t* char_lcd, uint8 custom_char_address);
-Std_ReturnType ecu_char_lcd_add_custom_char(const char_lcd_t* char_lcd, uint8 custom_char_posn, uint8 custom_char[]);
-Std_ReturnType ecu_char_lcd_initialize(const char_lcd_t* char_lcd, const uint8 function_set_command, const uint8 display_control_command);
+Std_ReturnType ecu_char_lcd_send_data(const char_lcd_t* char_lcd, uint8_t to_send_data, logic_t rs_pin);
+Std_ReturnType ecu_char_lcd_send_instruction(const char_lcd_t* char_lcd, uint8_t instruction );
+Std_ReturnType ecu_char_lcd_write_char(const char_lcd_t* char_lcd, uint8_t row, uint8_t column, uint8_t character);
+Std_ReturnType ecu_char_lcd_write_string(char_lcd_t* char_lcd, uint8_t row, uint8_t column, char string[]);
+Std_ReturnType ecu_char_lcd_set_cursor(const char_lcd_t* char_lcd, uint8_t row, uint8_t column);
+Std_ReturnType ecu_char_lcd_set_cgram_address(char_lcd_t* char_lcd, uint8_t custom_char_address);
+Std_ReturnType ecu_char_lcd_add_custom_char(const char_lcd_t* char_lcd, uint8_t custom_char_posn, uint8_t custom_char[]);
+Std_ReturnType ecu_char_lcd_initialize(const char_lcd_t* char_lcd, const uint8_t function_set_command, const uint8_t display_control_command);
 
 #endif	/* ECU_CHAR_LCD_H */

@@ -4,7 +4,6 @@
  * @author     Abdulrhman Bahaa
  * @brief      This source file contains the main function for the application
  * @date       2023-11-17
- * @details    Two function included : main and application_initialization
  ******************************************************************************
 */
 #include "application.h"
