@@ -1,18 +1,17 @@
 /**
  ******************************************************************************
- * @file       hal_gpio.h
+ * @file       mcal_gpio.h
  * @author     Abdulrhman Bahaa
  * @brief      This header file includes declarations for gpio module
  * @date       2023-12-05
  ******************************************************************************
 */
-#ifndef HAL_GPIO_H
-#define	HAL_GPIO_H
+#ifndef mcal_GPIO_H
+#define	mcal_GPIO_H
 
 /* Includes -----------------------------------------------------------------*/
 #include <xc.h>
-#include "../../config/std_types.h"
-
+#include "../mcal_std_types.h"
 
 /* Macro Declarations -------------------------------------------------------*/
 #define _XTAL_FREQ                          4000
@@ -66,11 +65,11 @@ typedef struct {
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-Std_ReturnType hal_gpio_pin_direction_initialize(const pin_config_t* pin_config);
-Std_ReturnType hal_gpio_pin_direction_status(const pin_config_t* pin_config, direction_t* direction_status);
-Std_ReturnType hal_gpio_pin_logic_write(const pin_config_t* pin_config, logic_t logic);
-Std_ReturnType hal_gpio_pin_logic_read(const pin_config_t* pin_config, logic_t* logic);
-Std_ReturnType hal_gpio_pin_initialize(const pin_config_t* pin_config);
+Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config);
+Std_ReturnType mcal_gpio_pin_direction_status(const pin_config_t* pin_config, direction_t* direction_status);
+Std_ReturnType mcal_gpio_pin_logic_write(const pin_config_t* pin_config, logic_t logic);
+Std_ReturnType mcal_gpio_pin_logic_read(const pin_config_t* pin_config, logic_t* logic);
+Std_ReturnType mcal_gpio_pin_initialize(const pin_config_t* pin_config);
 
-#endif	/* HAL_GPIO_H */
+#endif	/* mcal_GPIO_H */
 

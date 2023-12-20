@@ -1,19 +1,20 @@
 /**
  ******************************************************************************
- * @file       application.h
+ * @file       mcal_inter.h
  * @author     Abdulrhman Bahaa
- * @brief      This header file includes header files from ecualA_layer and
- *             function declaration.
- * @date       2023-11-18
+ * @brief      This header file includes declarations for interrupts module
+ * @date       2023-12-10
  ******************************************************************************
 */
-#ifndef APPLICATION_H
-#define	APPLICATION_H
+#ifndef MCAL_INTERRUPT_ISR_H
+#define	MCAL_INTERRUPT_ISR_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../ecualAL/char_lcd/ecual_char_lcd.h"
+#include <xc.h>
+#include "mcal_interrupt.h"
 
 /* Macro Declarations -------------------------------------------------------*/
+#define INTERRUPT_OCCURRED   0X01
 
 /* Macro Functions Declarations ---------------------------------------------*/
 
@@ -22,11 +23,13 @@
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-/**
- * @brief       This function will include calls of functions to initialize 
- *              application's interfaces
- * @return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
-*/
-Std_ReturnType application_initialize(void);
+void int0_isr(void);
+void int1_isr(void);
+void int2_isr(void);
+#endif	/* MCAL_INTERRUPT_ISR_H */
 
-#endif	/* APPLICATION_H */
+
+
+
+
+
