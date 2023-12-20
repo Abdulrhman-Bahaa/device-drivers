@@ -1,18 +1,18 @@
 /**
  ******************************************************************************
- * @file       application.h
+ * @file       mcal_eeprom.h
  * @author     Abdulrhman Bahaa
- * @brief      This header file includes header files from ecualA_layer and
- *             function declaration.
- * @date       2023-11-18
+ * @brief      This header file contains the declaration of eeprom interface
+ * @date       2023-12-20
  ******************************************************************************
 */
-#ifndef APPLICATION_H
-#define	APPLICATION_H
+#ifndef MCAL_EEPROM_H
+#define	MCAL_EEPROM_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../ECUAL/char_lcd/ecual_char_lcd.h"
-#include "../MCAL/eeprom/mcal_eeprom.h"
+#include <xc.h>
+#include "../mcal_std_types.h"
+#include "../interrupts/mcal_interrupt.h"
 
 /* Macro Declarations -------------------------------------------------------*/
 
@@ -23,11 +23,7 @@
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-/**
- * @brief       This function will include calls of functions to initialize 
- *              application's interfaces
- * @return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
-*/
-Std_ReturnType application_initialize(void);
+Std_ReturnType mcal_eeprom_data_write(const uint16_t address, const uint8_t data);
+Std_ReturnType mcal_eeprom_data_read(const uint16_t address, uint8_t* data);
 
-#endif	/* APPLICATION_H */
+#endif	/* MCAL_EEPROM_H */

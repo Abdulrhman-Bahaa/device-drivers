@@ -10,8 +10,8 @@
 #include "mcal_gpio.h"
 
 /* Variables Definitions ----------------------------------------------------*/
-volatile uint8_t* tris_register[PORT_MAX_NUMBER] = {&TRISA,&TRISB,&TRISC,&TRISD,&TRISE};
-volatile uint8_t* port_register[PORT_MAX_NUMBER] = {&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
+volatile uint8_t* tris_register[PORT_MAX_NUMBER] = {&TRISA ,&TRISB, &TRISC, &TRISD, &TRISE};
+volatile uint8_t* port_register[PORT_MAX_NUMBER] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE};
 
 /* Functions Implementations -------------------------------------------------*/
 Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config){

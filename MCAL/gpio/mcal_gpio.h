@@ -2,7 +2,7 @@
  ******************************************************************************
  * @file       mcal_gpio.h
  * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for gpio module
+ * @brief      This header file includes declarations of gpio module
  * @date       2023-12-05
  ******************************************************************************
 */
