@@ -10,7 +10,8 @@
 #include "mcal_interrupt.h"
 
 /* Variables Definitions -----------------------------------------------------*/
-void (*isr_app_ptr[4])(void) = {NULL, NULL, NULL, NULL};
+void (*intx_isr_app_ptr[3])(void) = {NULL, NULL, NULL};
+void (*timerx_isr_app_ptr[4])(void) = {NULL, NULL, NULL, NULL};
 
 /* Functions Implementations -------------------------------------------------*/
 Std_ReturnType mcal_interrupt_intx_initialize(const intx_interrrupt_t* intx_interrrupt) {
@@ -127,17 +128,45 @@ Std_ReturnType mcal_interrupt_intx_app_isr(const intx_interrrupt_t* intx_interrr
     else {
         switch(intx_interrrupt->intx_pin.pin){
             case PIN0_INDEX: 
-                isr_app_ptr[0] = intx_interrrupt->intx_isr_app_ptr;
+                intx_isr_app_ptr[0] = intx_interrrupt->intx_isr_app_ptr;
                 break;
             case PIN1_INDEX: 
-                isr_app_ptr[1] = intx_interrrupt->intx_isr_app_ptr;
+                intx_isr_app_ptr[1] = intx_interrrupt->intx_isr_app_ptr;
                 break;
             case PIN2_INDEX: 
-                isr_app_ptr[2] = intx_interrrupt->intx_isr_app_ptr;
+                intx_isr_app_ptr[2] = intx_interrrupt->intx_isr_app_ptr;
                 break;
             default:
                 ret = E_NOT_OK; 
         }
+    }
+    return ret;
+}
+
+Std_ReturnType mcal_interrupt_timerx_init(timerx_t timer_number, void (*timerx_callback_interrupt_function)(void)){
+    Std_ReturnType ret = E_OK;
+    if (NULL == timerx_callback_interrupt_function) {
+        ret = E_NOT_OK;
+    }
+    else {
+        GLOBAL_INTERRUPT_DISABLE();
+        switch(timer_number){
+            case TIMER0: 
+                break;
+            case TIMER1: 
+                break;
+            case TIMER2:
+                TIMER2_INTERRUPT_FLAG_CLEAR();
+                timerx_isr_app_ptr[2] = timerx_callback_interrupt_function;
+                TIMER2_INTERRUPT_ENABLE();
+                break;
+            case TIMER3: 
+                break;
+            default:
+                ret = E_NOT_OK; 
+        }
+        PERIPHERAL_IINTERRUPT_ENABLE();
+        GLOBAL_INTERRUPT_ENABLE();
     }
     return ret;
 }

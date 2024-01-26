@@ -14,10 +14,15 @@
 #include "../gpio/mcal_gpio.h"
 
 /* Macro Declarations -------------------------------------------------------*/
+#define INTERRUPT_ENABLE    1
+#define INTERRUPT_DISABLE   0
 
 /* Macro Functions Declarations ---------------------------------------------*/
 #define GLOBAL_INTERRUPT_ENABLE()               (INTCONbits.GIE = 1)
 #define GLOBAL_INTERRUPT_DISABLE()              (INTCONbits.GIE = 0)
+
+#define PERIPHERAL_IINTERRUPT_ENABLE()          (INTCONbits.PEIE = 1)
+#define PERIPHERAL_IINTERRUPT_DISABLE()          (INTCONbits.PEIE = 0)
 
 #define INT0_EXTERNAL_INTERRUPT_ENABLE()        (INTCONbits.INT0IE = 1) 
 #define INT0_EXTERNAL_INTERRUPT_DISABLE()       (INTCONbits.INT0IE = 0) 
@@ -42,10 +47,16 @@
 #define INT2_EXTERNAL_INTERRUPT_PRIORITY_LOW()  (INTCON3bits.INT2IP = 0) 
 
 #define RB_PORT_CHANGE_INTERRUPT_ENABLE()       (INTCONbits.RBIE = 1)
-#define RB_PORT_CHANGE_INTERRUPT_DISABLE()      (INTCONbits.RBIE = 1)
+#define RB_PORT_CHANGE_INTERRUPT_DISABLE()      (INTCONbits.RBIE = 0)
 #define RB_PORT_CHANGE_INTERRUPT_FLAG_CLEAR()   (INTCONbits.RBIF = 0)
 #define RB_PORT_CHANGE_INTERRUPT_PRIORITY_HIGH()(INTCON2bits.RBIP = 1)
 #define RB_PORT_CHANGE_INTERRUPT_PRIORITY_LOW() (INTCON2bits.RBIP = 0)
+
+#define TIMER2_INTERRUPT_ENABLE()               (PIE1bits.TMR2IE = 1)
+#define TIMER2_INTERRUPT_DISABLE()              (PIE1bits.TMR2IE  = 0)
+#define TIMER2_INTERRUPT_FLAG_CLEAR()           (PIR1bits.TMR2IF = 0)
+#define TIMER2_CHANGE_INTERRUPT_PRIORITY_HIGH() (IPR1bits.TMR2IP = 1)
+#define TIMER2_CHANGE_INTERRUPT_PRIORITY_LOW()  (IPR1bits.TMR2IP = 0)
 
 /* Data Type Declarations ---------------------------------------------------*/
 typedef enum {
@@ -74,8 +85,16 @@ typedef struct {
     rb_change_interrupt_priority_t priority;
 }rb_change_interrrupt_t;
 
+typedef enum {
+    TIMER0 = 0,
+    TIMER1,
+    TIMER2,
+    TIMER3 
+}timerx_t;
+
 /* Variables Declarations ---------------------------------------------------*/
-extern void (*isr_app_ptr[4])(void);
+extern void (*intx_isr_app_ptr[3])(void);
+extern void (*timerx_isr_app_ptr[4])(void);
 
 /* Functions Declarations ---------------------------------------------------*/
 Std_ReturnType mcal_interrupt_intx_initialize(const intx_interrrupt_t* intx_interrrupt);
@@ -84,6 +103,7 @@ Std_ReturnType mcal_interrupt_intx_app_isr(const intx_interrrupt_t* intx_interrr
 Std_ReturnType mcal_interrupt_rb_change_initialize(const rb_change_interrrupt_t* rb_change_interrrupt);
 Std_ReturnType mcal_interrupt_rb_change_deinitialize(const rb_change_interrrupt_t* rb_change_interrrupt);
 Std_ReturnType mcal_interrupt_rb_change_app_isr(const rb_change_interrrupt_t* rb_change_interrrupt);
+Std_ReturnType mcal_interrupt_timerx_init(timerx_t timer_number, void (*timerx_callback_interrupt_function)(void));
 
 
 #endif	/* MCAL_INTERRUPT_H */

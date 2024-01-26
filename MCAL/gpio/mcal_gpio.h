@@ -14,7 +14,7 @@
 #include "../mcal_std_types.h"
 
 /* Macro Declarations -------------------------------------------------------*/
-#define _XTAL_FREQ                          4000
+#define _XTAL_FREQ                          8000
 #define BIT_MASK                            0x01
 #define PORT_PIN_MAX_NUMBER                 0x08
 #define PORT_MAX_NUMBER                     0x05

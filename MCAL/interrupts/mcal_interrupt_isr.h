@@ -26,6 +26,7 @@
 void int0_isr(void);
 void int1_isr(void);
 void int2_isr(void);
+void timer2_isr(void);
 #endif	/* MCAL_INTERRUPT_ISR_H */
 
 
