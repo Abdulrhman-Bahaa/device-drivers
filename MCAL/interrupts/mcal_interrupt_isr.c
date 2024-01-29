@@ -13,7 +13,6 @@
 
 /* Functions Implementations -------------------------------------------------*/
 void __interrupt(high_priority) ISR(void) {
-    __delay_ms(500);
     if (INTERRUPT_OCCURRED == INTCONbits.INT0IF) {
         int0_isr();
     }
