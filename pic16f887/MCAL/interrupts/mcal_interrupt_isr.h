@@ -26,11 +26,12 @@
 void int0_isr(void);
 void int1_isr(void);
 void int2_isr(void);
+void timer0_isr(void);
+void timer1_isr(void);
 void timer2_isr(void);
+void ccp1_isr(void);
+void usart_transmit_isr(void);
+void usart_receive_isr(void);
+
 #endif	/* MCAL_INTERRUPT_ISR_H */
-
-
-
-
-
 

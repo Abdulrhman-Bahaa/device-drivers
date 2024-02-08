@@ -13,49 +13,46 @@
 
 /* Functions Implementations -------------------------------------------------*/
 void __interrupt(high_priority) ISR(void) {
-    if (INTERRUPT_OCCURRED == INTCONbits.INT0IF) {
-        int0_isr();
+    if (INTERRUPT_OCCURRED == INTCONbits.TMR0IF) {
+        timer0_isr();
     }
-    if (INTERRUPT_OCCURRED == INTCON3bits.INT1IF) {
-        int1_isr();
-    }
-    if (INTERRUPT_OCCURRED == INTCON3bits.INT2IF) {
-        int2_isr();
+    if (INTERRUPT_OCCURRED == PIR1bits.TMR1IF) {
+        timer1_isr();
     }
     if (INTERRUPT_OCCURRED == PIR1bits.TMR2IF) {
         timer2_isr();
     }
+    if (INTERRUPT_OCCURRED ==  PIR1bits.CCP1IF) {
+        ccp1_isr();
+    }
+    if (INTERRUPT_OCCURRED == PIR1bits.TXIF) {
+        usart_transmit_isr();
+    }
+    if (INTERRUPT_OCCURRED == PIR1bits.RCIF) {
+        usart_receive_isr();
+    }
   return;
 }
 
-void int0_isr(void){
-    if (NULL != intx_isr_app_ptr[0]) {
-        intx_isr_app_ptr[0]();
+
+void timer0_isr(void){
+    if (NULL != timerx_isr_app_ptr[0]) {
+       timerx_isr_app_ptr[0]();
     }
     else {
         /* Nothing */
     }
-    INT0_EXTERNAL_INTERRUPT_FLAGE_CLEAR();
+    TIMER0_INTERRUPT_FLAG_CLEAR();
 }
 
-void int1_isr(void){
-    if (NULL != intx_isr_app_ptr[1]) {
-       intx_isr_app_ptr[1]();
+void timer1_isr(void){
+    if (NULL != timerx_isr_app_ptr[1]) {
+       timerx_isr_app_ptr[1]();
     }
     else {
         /* Nothing */
     }
-    INT1_EXTERNAL_INTERRUPT_FLAGE_CLEAR();
-}
-
-void int2_isr(void){
-    if (NULL != intx_isr_app_ptr[2]) {
-        intx_isr_app_ptr[2]();
-    }
-    else {
-        /* Nothing */
-    }
-    INT2_EXTERNAL_INTERRUPT_FLAGE_CLEAR();
+    TIMER1_INTERRUPT_FLAG_CLEAR();
 }
 
 void timer2_isr(void){
@@ -68,4 +65,31 @@ void timer2_isr(void){
     TIMER2_INTERRUPT_FLAG_CLEAR();
 }
 
+void ccp1_isr(void){
+    if (NULL != ccpx_isr_app_ptr[0]) {
+       ccpx_isr_app_ptr[0]();
+    }
+    else {
+        /* Nothing */
+    }
+    CCP1_INTERRUPT_FLAG_CLEAR();
+}
+
+void usart_transmit_isr(void){
+    if (NULL != usart_transmit_isr_app_ptr) {
+       usart_transmit_isr_app_ptr();
+    }
+    else {
+        /* Nothing */
+    }
+}
+
+void usart_receive_isr(void){
+    if (NULL != usart_receive_isr_app_ptr) {
+       usart_receive_isr_app_ptr();
+    }
+    else {
+        /* Nothing */
+    }
+}
 
