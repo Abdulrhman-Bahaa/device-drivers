@@ -46,5 +46,6 @@ Std_ReturnType ecual_char_lcd_set_cursor(const char_lcd_t* char_lcd, uint8_t row
 Std_ReturnType ecual_char_lcd_set_cgram_address(char_lcd_t* char_lcd, uint8_t custom_char_address);
 Std_ReturnType ecual_char_lcd_add_custom_char(const char_lcd_t* char_lcd, uint8_t custom_char_posn, uint8_t custom_char[]);
 Std_ReturnType ecual_char_lcd_initialize(const char_lcd_t* char_lcd, const uint8_t function_set_command, const uint8_t display_control_command);
+Std_ReturnType ecual_char_lcd_write_int(const char_lcd_t* char_lcd, uint8_t row, uint8_t column, uint32_t num);
 
 #endif	/* ecual_CHAR_LCD_H */
