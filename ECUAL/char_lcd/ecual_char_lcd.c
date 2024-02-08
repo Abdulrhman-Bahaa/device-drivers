@@ -69,10 +69,11 @@ Std_ReturnType ecual_char_lcd_write_string(char_lcd_t* char_lcd, uint8_t row, ui
         ret = E_NOT_OK;
     }
     else {
+        ret = ecual_char_lcd_set_cursor(char_lcd, row, column);
         ret = mcal_gpio_pin_logic_write(&(char_lcd->rs_pin), HIGH);
         int i = 0;
         while('\0' != string[i]) {
-            ret = ecual_char_lcd_write_char(char_lcd, row, column, string[i]);
+            ret = ecual_char_lcd_send_data(char_lcd, string[i], HIGH);
             i++;
         }
     }
@@ -168,6 +169,27 @@ Std_ReturnType ecual_char_lcd_initialize(const char_lcd_t* char_lcd, const uint8
         __delay_ms(30);
         ret = ecual_char_lcd_send_instruction(char_lcd, display_control_command);
     __delay_us(50);
+    }
+    return ret;
+}
+
+Std_ReturnType ecual_char_lcd_write_int(const char_lcd_t* char_lcd, uint8_t row, uint8_t column, uint32_t num) {
+    Std_ReturnType ret = E_OK;     
+    if (NULL == char_lcd) {
+    ret = E_NOT_OK;
+    }
+    else {
+        ret = ecual_char_lcd_set_cursor(char_lcd, row, column);
+        uint8_t arr[10] = {0};
+        int8_t i = -1;
+        while (num != 0){
+            arr[++i] = 48 + (num % 10);
+            num /= 10;
+        }
+        while (i >= 0) {
+            ret = ecual_char_lcd_send_data(char_lcd, arr[i], HIGH);
+            i--;           
+        }
     }
     return ret;
 }
