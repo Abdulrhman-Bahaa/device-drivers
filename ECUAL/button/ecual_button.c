@@ -1,4 +1,4 @@
-/*
+/**
  ******************************************************************************
  * @file           : ecu_button.c
  * @author         : Abdulrhman Bahaa
@@ -49,8 +49,29 @@ Std_ReturnType ecual_button_read(const button_config_t* btn,button_status_t* btn
     return ret;
 }
 
-/*
- ******************************************************************************
- User          Date                 Brief
- ******************************************************************************
-*/
+Std_ReturnType ecual_button_invoke_on_high(const button_config_t* btn, void (*function_to_invoke)(void)) {
+    Std_ReturnType ret = E_OK;
+    if((NULL == btn) || (NULL == function_to_invoke)) {
+        ret = E_NOT_OK;
+    }
+    else {
+        button_status_t previous_state = BUTTON_RELEASED;
+        button_status_t current_state = BUTTON_RELEASED;
+        
+        ret = ecual_button_read(btn, &current_state);
+        __delay_ms(5);
+        ret = ecual_button_read(btn, &current_state);       
+                
+        if ((BUTTON_PRESSED == current_state) && (BUTTON_RELEASED == previous_state )) {
+            function_to_invoke();      
+            previous_state = BUTTON_PRESSED;
+        }
+        else if (current_state == BUTTON_RELEASED){
+            previous_state = BUTTON_RELEASED;
+        }
+        else {
+            /* Nothing */
+        }
+    }
+    return ret;
+}
