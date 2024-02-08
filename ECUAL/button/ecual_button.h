@@ -34,6 +34,7 @@ typedef struct {
 /* Functions Declarations ---------------------------------------------------*/
 Std_ReturnType ecual_button_initialize(const button_config_t* btn);
 Std_ReturnType ecual_button_read(const button_config_t* btn, button_status_t* btn_status);
+Std_ReturnType ecual_button_invoke_on_high(const button_config_t* btn, void (*function_to_invoke)(void));
 
 #endif /* ECUAL_BUTTON_H */
 
