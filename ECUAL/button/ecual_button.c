@@ -55,8 +55,8 @@ Std_ReturnType ecual_button_invoke_on_high(const button_config_t* btn, void (*fu
         ret = E_NOT_OK;
     }
     else {
-        button_status_t previous_state = BUTTON_RELEASED;
-        button_status_t current_state = BUTTON_RELEASED;
+        static button_status_t previous_state = BUTTON_RELEASED;
+        static button_status_t current_state = BUTTON_RELEASED;
         
         ret = ecual_button_read(btn, &current_state);
         __delay_ms(5);
