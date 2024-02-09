@@ -176,7 +176,7 @@ Std_ReturnType mcal_usart_transmit_string(const usart_t* usart, char string[]) {
             ret = mcal_usart_transmit_data(&usart, (uint8_t)string[i], 0);
             i++;
         }
+         ret = mcal_usart_transmit_data(&usart, (uint8_t)'\0', 0);
     }
     return ret; 
 }
-
