@@ -14,7 +14,7 @@ volatile uint8_t* tris_register[PORT_MAX_NUMBER] = {&TRISA ,&TRISB, &TRISC, &TRI
 volatile uint8_t* port_register[PORT_MAX_NUMBER] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE};
 
 /* Functions Implementations -------------------------------------------------*/
-Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config){
+Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config, direction_t direction) {
     Std_ReturnType ret = E_OK;
     uint8_t bit_posn = pin_config->pin;
     if((NULL == pin_config) || (bit_posn > PORT_PIN_MAX_NUMBER - 1)) {
@@ -22,12 +22,12 @@ Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config
     } 
     else {
         volatile uint8_t* reg_addr = tris_register[pin_config->port];
-        switch(pin_config->direction){
+        switch(direction){
             case INPUT:
-                SET_BIT(reg_addr,bit_posn);
+                SET_BIT(*reg_addr,bit_posn);
                 break;
             case OUTPUT:
-                CLEAR_BIT(reg_addr,bit_posn);
+                CLEAR_BIT(*reg_addr,bit_posn);
                 break;
             default: 
                 ret = E_NOT_OK;
