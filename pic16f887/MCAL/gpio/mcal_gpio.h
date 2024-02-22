@@ -10,7 +10,6 @@
 #define	mcal_GPIO_H
 
 /* Includes -----------------------------------------------------------------*/
-#include <xc.h>
 #include "../mcal_std_types.h"
 
 /* Macro Declarations -------------------------------------------------------*/
@@ -65,7 +64,7 @@ typedef struct {
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config);
+Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config, direction_t direction);
 Std_ReturnType mcal_gpio_pin_direction_status(const pin_config_t* pin_config, direction_t* direction_status);
 Std_ReturnType mcal_gpio_pin_logic_write(const pin_config_t* pin_config, logic_t logic);
 Std_ReturnType mcal_gpio_pin_logic_read(const pin_config_t* pin_config, logic_t* logic);
