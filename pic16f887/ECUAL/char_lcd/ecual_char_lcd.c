@@ -2,7 +2,7 @@
  ******************************************************************************
  * @file       ecual_char_lcd.c
  * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for char lcd 
+ * @brief      This source file contains the implementations for char LCD 
  *	       interfaces
  * @date       2023-12-06
  ******************************************************************************
@@ -32,10 +32,23 @@ Std_ReturnType ecual_char_lcd_send_data(const char_lcd_t* char_lcd, uint8_t to_s
     }
     else {
         ret = mcal_gpio_pin_logic_write(&(char_lcd->rs_pin), rs_pin);
-        for (int bit_to_pin = 0; bit_to_pin < 8; bit_to_pin++) {
-            ret = mcal_gpio_pin_logic_write(&(char_lcd->data[bit_to_pin]), READ_BIT(&to_send_data, bit_to_pin));
+        
+        if (8 == char_lcd->data_interface_size) {
+            for (uint8_t bit_to_pin = 0; bit_to_pin < 8; bit_to_pin++) {
+                ret = mcal_gpio_pin_logic_write(&(char_lcd->data[bit_to_pin]), READ_BIT(to_send_data, bit_to_pin));
+            }
+            ret = ecual_char_lcd_enable_pulse(char_lcd);
         }
-        ret = ecual_char_lcd_enable_pulse(char_lcd);
+        else {
+            for (uint8_t bit_to_pin = 0; bit_to_pin < 4; bit_to_pin++) {
+                ret = mcal_gpio_pin_logic_write(&(char_lcd->data[bit_to_pin]), READ_BIT(to_send_data >> 4, bit_to_pin));
+            }
+            ret = ecual_char_lcd_enable_pulse(char_lcd);
+            for (uint8_t bit_to_pin = 0; bit_to_pin < 4; bit_to_pin++) {
+                ret = mcal_gpio_pin_logic_write(&(char_lcd->data[bit_to_pin]), READ_BIT(to_send_data, bit_to_pin));
+            }
+            ret = ecual_char_lcd_enable_pulse(char_lcd);
+        }
     }
     return ret;
 }
