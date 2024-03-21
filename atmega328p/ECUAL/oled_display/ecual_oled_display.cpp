@@ -37,7 +37,7 @@ void data_stream(void) {
     mcal_i2c_data_trasnmit(0x40);
 }
 
-Std_ReturnType ecual_oled_display_bit_mapping(const oled_display_config_t* oled_display,const uint8_t* array_of_bytes, const uint8_t height, const uint8_t width, uint8_t page, uint8_t column) {
+Std_ReturnType ecual_oled_display_bit_mapping(const oled_display_config_t* oled_display,const uint8_t* array_of_bytes, const uint8_t width, const uint8_t height, uint8_t page, uint8_t column) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display) {
         ret = E_NOT_OK;
