@@ -10,7 +10,7 @@
 #define	MCAL_GPIO_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../mcal_std_types.h"
+#include "../std/mcal_std_types.h"
 #include <util/delay.h>
 
 /* Macro Declarations -------------------------------------------------------*/
@@ -37,31 +37,36 @@ typedef enum {
     PIN7_INDEX
 }pin_index_t;
 
-typedef enum {
+
+typedef enum : bool {
     OUTPUT = 0,
     INPUT
 }direction_t;
 
-typedef enum {
+typedef enum : bool {
     LOW = 0,
     HIGH
 }logic_t;
 
 typedef struct { 
-    port_index_t port;           
-    pin_index_t  pin ;          
-    direction_t  direction ;     
-    logic_t      logic ;         
+    port_index_t port : 4;           
+    pin_index_t  pin : 4;              
+}pin_location_t;
+
+typedef struct { 
+    pin_location_t location;       
+    direction_t  direction : 1;     
+    logic_t      logic : 1;         
 }pin_config_t;
 
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config, direction_t direction);
-Std_ReturnType mcal_gpio_pin_logic_write(const pin_config_t* pin_config, logic_t logic);
-Std_ReturnType mcal_gpio_pin_logic_read(const pin_config_t* pin_config, logic_t* logic);
-Std_ReturnType mcal_gpio_pin_logic_toggle(const pin_config_t* pin_config);
-Std_ReturnType mcal_gpio_pin_initialize(const pin_config_t* pin_config);
+Std_ReturnType mcal_gpio_pin_direction_write(const pin_location_t* pin_location, const direction_t direction);
+Std_ReturnType mcal_gpio_pin_logic_write(const pin_location_t* pin_location, const logic_t logic);
+Std_ReturnType mcal_gpio_pin_logic_read(const pin_location_t* pin_location, logic_t* logic);
+Std_ReturnType mcal_gpio_pin_logic_toggle(const pin_location_t* pin_location);
+Std_ReturnType mcal_gpio_pin_init(const pin_config_t* pin_config);
 
 #endif	/* MCAL_GPIO_H */
 
