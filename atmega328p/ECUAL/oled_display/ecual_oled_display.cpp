@@ -63,7 +63,7 @@ Std_ReturnType ecual_oled_display_bit_mapping(const oled_display_config_t* oled_
         uint8_t byte_to_send = 0, shifting = 0, h = 0, counter = height, width_in_bytes = round_up(width / 8.0);    
         ret |= ecual_oled_display_addressing_mode(oled_display, 2);
         for (uint8_t page_num = 0; page_num < round_up(height / 8.0); page_num++) {
-            ret |= ecual_oled_display_cursor_set(oled_display, page_num, column); 
+            ret |= ecual_oled_display_cursor_set(oled_display, page + page_num, column); 
             if (counter >= 8) {
                 h = 8;
                 counter -= 8;
