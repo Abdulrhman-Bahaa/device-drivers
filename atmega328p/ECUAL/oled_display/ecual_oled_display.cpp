@@ -353,15 +353,16 @@ Std_ReturnType ecual_oled_display_scroll_status_set(const oled_display_config_t*
     return ret;
 }
 
-Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* oled_display_menu) {
+Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* oled_display_menu, uint8_t item_to_select) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display_menu) {
         ret = E_NOT_OK;
     }
     else {
 		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height;
+        ret |= ecual_oled_display_clear(oled_display_menu->oled_display);
 		// Create outline (rectangle)
-		ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, 0, 0, 128, height);
+        ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, (height / 8) * item_to_select, 0, 128, height);
 		// Draw menu items
 		for (uint8_t i = 0; i < oled_display_menu->number_of_items; i++) {
 			ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[i], width, height, i * (height / 8), 8);
