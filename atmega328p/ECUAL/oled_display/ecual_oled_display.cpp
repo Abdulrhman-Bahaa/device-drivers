@@ -238,7 +238,6 @@ Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_displ
         for (uint8_t page_num = start_page; page_num < end_page + 1; page_num++) {
             if (end_page == page_num) {
                 column = end_column;
-                SET_BIT(PORTB, 5);
             }
             else {
                 column = 128;
@@ -362,7 +361,7 @@ Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* ol
     else {
 		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height;
 		// Create outline (rectangle)
-		ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, 0, 0, 128, 16);
+		ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, 0, 0, 128, height);
 		// Draw menu items
 		for (uint8_t i = 0; i < oled_display_menu->number_of_items; i++) {
 			ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[i], width, height, i * (height / 8), 8);
@@ -400,9 +399,10 @@ Std_ReturnType ecual_oled_display_menu_item_select(const oled_display_menu_confi
 			}
 		}
 		previous_item1 = item_to_select;
-		ret |= ecual_oled_display_drawer(oled_display_menu->oled_display, 0x00, previous_item0 * 2, 0, (previous_item0 * 2) + 1,  128);
+
+		ret |= ecual_oled_display_drawer(oled_display_menu->oled_display, 0x00, previous_item0 * (height / 8), 0, (previous_item0 * (height / 8)) + ((height / 8) - 1),  128);
 		ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[previous_item0], width, height, previous_item0 * (height / 8), 8);
-        ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, 2 * item_to_select, 0, 128, 16);
+        ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, (height / 8) * item_to_select, 0, 128, height);
 		ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[item_to_select], width, height, item_to_select * (height / 8), 8);
     }
     return ret;
