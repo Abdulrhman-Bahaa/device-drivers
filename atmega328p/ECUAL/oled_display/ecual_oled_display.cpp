@@ -227,25 +227,74 @@ Std_ReturnType ecual_oled_display_cursor_set(const oled_display_config_t* oled_d
     return ret;
 }
 
+Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_display, uint8_t data_to_draw, uint8_t start_page, uint8_t start_column, uint8_t end_page, uint8_t end_column) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display) {
+        ret = E_NOT_OK;
+    }
+    else {
+        uint8_t column = 0;
+        ret |= ecual_oled_display_addressing_mode(oled_display, 2);
+        for (uint8_t page_num = start_page; page_num < end_page + 1; page_num++) {
+            if (end_page == page_num) {
+                column = end_column;
+                SET_BIT(PORTB, 5);
+            }
+            else {
+                column = 128;
+            }
+            ret |= ecual_oled_display_cursor_set(oled_display, page_num, start_column);
+                mcal_i2c_start_condition();
+                ret |= mcal_i2c_address_trasnmit((oled_display->oled_display_address), WRITE);
+                data_stream();
+            for (uint8_t column_num = start_column; column_num < column; column_num++) {
+                mcal_i2c_data_trasnmit(data_to_draw); 
+            }
+            mcal_i2c_stop_condition();      
+        }
+    }
+    return ret;
+}
+
 Std_ReturnType ecual_oled_display_clear(const oled_display_config_t* oled_display) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display) {
         ret = E_NOT_OK;
     }
     else {
-        ret |= ecual_oled_display_addressing_mode(oled_display, 0);
-        ret |= ecual_oled_display_cursor_set(oled_display, 0, 0);
-        mcal_i2c_start_condition();
-        ret |= mcal_i2c_address_trasnmit((oled_display->oled_display_address), WRITE);
-        data_stream();
-        for (uint16_t column_num = 0; column_num  < 1152; column_num++) {
-            mcal_i2c_data_trasnmit(0x00); 
-        }
-        mcal_i2c_stop_condition();      
-        ret |= ecual_oled_display_cursor_set(oled_display, 0, 0);
+        ret |= ecual_oled_display_drawer(oled_display, 0x00, 0, 0, 8, 128);
     }
     return ret;
 }
+
+Std_ReturnType ecual_oled_display_rectangle_draw(const oled_display_config_t* oled_display, uint8_t thickness, uint8_t page, uint8_t column, uint8_t width, uint8_t height) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display) {
+        ret = E_NOT_OK;
+    }
+    else {
+        // Height
+        uint8_t thickness = 1;
+        for (uint8_t i = 0; i < thickness; i++) {
+            for (uint8_t vertical_line = 0; vertical_line < (height / 8); vertical_line++) {
+                // Left side
+                ret |= ecual_oled_display_drawer(oled_display, 0xff, page + vertical_line, column + i, page + vertical_line,  column + 1 + i);
+                // Right side
+                ret |= ecual_oled_display_drawer(oled_display, 0xff, page + vertical_line, width - thickness - 2 , page + vertical_line,  width - thickness + i - 1);
+            }
+        }
+        // Width
+        if (8 != height) {
+            ret |= ecual_oled_display_drawer(oled_display, pow(2, thickness) - 1, page, column + thickness, page, column + (width - 2) - thickness);
+            ret |= ecual_oled_display_drawer(oled_display, ((uint8_t)(pow(2, thickness) - 1)) << (8 - thickness), page + (height / 8) - 1 , column + thickness, page + (height / 8) - 1,  column + (width - 2) - thickness);
+        }
+        else {
+            ret |= ecual_oled_display_drawer(oled_display, ((uint8_t)(pow(2, thickness) - 1)) << (8 - thickness) | ((uint8_t)pow(2, thickness) - 1), page, column + thickness, page, column + (width - 2) - thickness);
+        }
+    }
+    return ret;
+}
+
 
 Std_ReturnType ecual_oled_display_contrast_set(const oled_display_config_t* oled_display, uint8_t contrast) {
     Std_ReturnType ret = E_OK;
@@ -278,6 +327,83 @@ Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_di
             i++;
         }
         _delay_us(1000 * speed);
+    }
+    return ret;
+}
+
+Std_ReturnType ecual_oled_display_scroll_status_set(const oled_display_config_t* oled_display, bool status) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display) {
+        ret = E_NOT_OK;
+    }
+    else {
+        mcal_i2c_start_condition();
+        ret |= mcal_i2c_address_trasnmit((oled_display->oled_display_address), WRITE);
+        single_command_byte();
+        if (true == status) {
+            mcal_i2c_data_trasnmit(0x2F); 
+        }
+        else if (false == status){
+            mcal_i2c_data_trasnmit(0x2E); 
+        }
+        else {
+            ret |= E_NOT_OK;
+        }
+        mcal_i2c_stop_condition();      
+    }
+    return ret;
+}
+
+Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* oled_display_menu) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display_menu) {
+        ret = E_NOT_OK;
+    }
+    else {
+		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height;
+		// Create outline (rectangle)
+		ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, 0, 0, 128, 16);
+		// Draw menu items
+		for (uint8_t i = 0; i < oled_display_menu->number_of_items; i++) {
+			ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[i], width, height, i * (height / 8), 8);
+		}
+
+    }
+    return ret;
+}
+
+Std_ReturnType ecual_oled_display_menu_item_select(const oled_display_menu_config_t* oled_display_menu, uint8_t item_to_select) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display_menu) {
+        ret = E_NOT_OK;
+    }
+    else {
+		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height, previous_item0 = item_to_select,
+		max_index = (oled_display_menu->number_of_items) - 1;
+		static uint8_t previous_item1 = 0;
+		// Rotate to down
+		if ((max_index == item_to_select) && (0 == previous_item1)) {
+			previous_item0 = 0;
+		}
+		// Rotate to up
+		else if ((0 == item_to_select) && (max_index == previous_item1)) {
+			previous_item0 = max_index;
+		}
+		else {
+			// Go down
+			if (item_to_select > previous_item1) {
+				previous_item0--;
+			}
+			// Go Up
+			else {
+				previous_item0++;
+			}
+		}
+		previous_item1 = item_to_select;
+		ret |= ecual_oled_display_drawer(oled_display_menu->oled_display, 0x00, previous_item0 * 2, 0, (previous_item0 * 2) + 1,  128);
+		ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[previous_item0], width, height, previous_item0 * (height / 8), 8);
+        ret |= ecual_oled_display_rectangle_draw(oled_display_menu->oled_display, 1, 2 * item_to_select, 0, 128, 16);
+		ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[item_to_select], width, height, item_to_select * (height / 8), 8);
     }
     return ret;
 }

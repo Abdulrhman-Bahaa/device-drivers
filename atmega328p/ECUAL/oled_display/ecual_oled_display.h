@@ -28,6 +28,14 @@ typedef struct {
     uint8_t oled_display_address;
 }oled_display_config_t;
 
+typedef struct {
+    oled_display_config_t* const oled_display;
+    uint8_t number_of_items;
+    uint8_t font_width;
+    uint8_t font_height;
+    uint8_t** array_of_items;
+}oled_display_menu_config_t;
+
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
@@ -41,10 +49,15 @@ Std_ReturnType ecual_oled_display_bit_mapping(const oled_display_config_t* oled_
                                                     const uint8_t height, uint8_t page, uint8_t column);
 Std_ReturnType ecual_oled_display_cursor_set(const oled_display_config_t* oled_display, uint8_t page, uint8_t column);
 Std_ReturnType ecual_oled_display_init(const oled_display_config_t* oled_display);
-Std_ReturnType ecual_oled_display_clear (const oled_display_config_t* oled_display);
+Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_display, uint8_t data_to_draw, uint8_t start_page, uint8_t start_column, uint8_t end_page, uint8_t end_column);
+Std_ReturnType ecual_oled_display_rectangle_draw(const oled_display_config_t* oled_display, uint8_t thickness, uint8_t page, uint8_t column, uint8_t width, uint8_t height);
+Std_ReturnType ecual_oled_display_clear(const oled_display_config_t* oled_display);
 Std_ReturnType ecual_oled_display_contrast_set(const oled_display_config_t* oled_display, uint8_t contrast);
 Std_ReturnType ecual_oled_display_char_write(const oled_display_config_t* oled_display, const uint8_t char_to_display, const uint8_t width, const uint8_t height, uint8_t page, uint8_t column);
 Std_ReturnType ecual_oled_display_string_write(const oled_display_config_t* oled_display, const uint8_t string[], const uint8_t width, const uint8_t height, uint8_t page, uint8_t column);
 Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_display, const uint8_t** array_of_images, uint8_t array_length, uint8_t speed);
+Std_ReturnType ecual_oled_display_scroll_status_set(const oled_display_config_t* oled_display, bool status);
+Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* oled_display_menu);
+Std_ReturnType ecual_oled_display_menu_item_select(const oled_display_menu_config_t* oled_display_menu, uint8_t item_to_select);
 
 #endif	/* ECUAL_OLED_DISPLAY_H */
