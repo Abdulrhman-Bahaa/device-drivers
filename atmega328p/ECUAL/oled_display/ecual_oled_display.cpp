@@ -279,7 +279,7 @@ Std_ReturnType ecual_oled_display_rectangle_draw(const oled_display_config_t* ol
                 // Left side
                 ret |= ecual_oled_display_drawer(oled_display, 0xff, page + vertical_line, column + i, page + vertical_line,  column + 1 + i);
                 // Right side
-                ret |= ecual_oled_display_drawer(oled_display, 0xff, page + vertical_line, width - thickness - 2 , page + vertical_line,  width - thickness + i - 1);
+                ret |= ecual_oled_display_drawer(oled_display, 0xff, page + vertical_line, width - thickness - 2 + column , page + vertical_line,  width - thickness + i - 1 + column) ;
             }
         }
         // Width
