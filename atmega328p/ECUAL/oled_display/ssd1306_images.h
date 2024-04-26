@@ -27,6 +27,7 @@ extern const uint8_t onepiece[] PROGMEM;
 extern const uint8_t max[] PROGMEM;
 extern const uint8_t batman[] PROGMEM;
 extern const uint8_t epd_bitmap_Outline [] PROGMEM;
+extern const uint8_t epd_bitmap_lock [] PROGMEM;
 
 /* Functions Declarations ---------------------------------------------------*/
 
