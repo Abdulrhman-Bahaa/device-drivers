@@ -371,12 +371,11 @@ Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* ol
 		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height;
         ret |= ecual_oled_display_clear(oled_display_menu->oled_display);
 		// Create outline 
-        ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, "<", 8, 16, 0, 112);
+        ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, "<", width, height, (height / 8) * item_to_select, 112); 
 		// Draw menu items
 		for (uint8_t i = 0; i < oled_display_menu->number_of_items; i++) {
 			ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, oled_display_menu->array_of_items[i], width, height, i * (height / 8), 8);
 		}
-
     }
     return ret;
 }
@@ -387,30 +386,13 @@ Std_ReturnType ecual_oled_display_menu_item_select(const oled_display_menu_confi
         ret = E_NOT_OK;
     }
     else {
-		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height, previous_item0 = item_to_select,
-		max_index = (oled_display_menu->number_of_items) - 1;
-		static uint8_t previous_item1 = 0;
-		// Rotate to down
-		if ((max_index == item_to_select) && (0 == previous_item1)) {
-			previous_item0 = 0;
-		}
-		// Rotate to up
-		else if ((0 == item_to_select) && (max_index == previous_item1)) {
-			previous_item0 = max_index;
-		}
-		else {
-			// Go down
-			if (item_to_select > previous_item1) {
-				previous_item0--;
-			}
-			// Go Up
-			else {
-				previous_item0++;
-			}
-		}
-		previous_item1 = item_to_select;
+		uint8_t width = oled_display_menu->font_width, height = oled_display_menu->font_height;
+		static uint8_t previous_item = 0;
 
-		ret |= ecual_oled_display_drawer(oled_display_menu->oled_display, 0x00, previous_item0 * (height / 8), 112, (previous_item0 * (height / 8)) + ((height / 8) - 1),  128);
-        ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, "<", 8, 16, (height / 8) * item_to_select, 112);    }
+        ret |= ecual_oled_display_drawer(oled_display_menu->oled_display, 0x00, previous_item * (height / 8), 112, (previous_item * (height / 8)) + ((height / 8) - 1),  128);
+        previous_item = item_to_select;
+        ret |= ecual_oled_display_string_write(oled_display_menu->oled_display, "<", width, height, (height / 8) * item_to_select, 112); 
+    }
     return ret;
 }
+
