@@ -41,9 +41,7 @@ Std_ReturnType ecual_keypad_char_read(const keypad_config_t* keypad, uint8_t* re
         ret = E_NOT_OK;
     }
     else {
-        static bool prev_btn_pressed = false;
         logic_t pin_logic = LOW;
-        uint8_t counter = KEYPAD_COLUMNS_NUMBER * KEYPAD_ROWS_NUMBER;
         uint8_t columns_logic = 0x00;
 
         for (uint8_t column_num = 0; column_num < KEYPAD_COLUMNS_NUMBER; column_num++) {
@@ -55,28 +53,16 @@ Std_ReturnType ecual_keypad_char_read(const keypad_config_t* keypad, uint8_t* re
             for (uint8_t row_num = 0; row_num < KEYPAD_ROWS_NUMBER; row_num++) {  
                 ret |= mcal_gpio_pin_logic_read(&(keypad->rows[row_num]), &pin_logic);
                 if (LOW == pin_logic) {
-                    if (false == prev_btn_pressed) {
-                        *received_char = keys[row_num][column_num];      
-                    }          
-                    else {
-                        /* Nothing */
-                    }             
-                    prev_btn_pressed = true;
+                    *received_char = keys[row_num][column_num];      
                     column_num = KEYPAD_COLUMNS_NUMBER;
                     row_num = KEYPAD_ROWS_NUMBER;
                 }
                 else {
-                    counter--;
+                    /* Nothing */
                 }   
             }
         }
-        if (0 == counter) {
-            prev_btn_pressed = false;
-        }
-        else {
-            /* Nothing */
-        } 
+        _delay_ms(50);
     }
     return ret;
 }
-
