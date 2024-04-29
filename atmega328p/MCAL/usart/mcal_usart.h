@@ -53,7 +53,6 @@ typedef struct {
 Std_ReturnType mcal_usart_init(const usart_config_t* usart);
 Std_ReturnType mcal_usart_transmit_data(const uint8_t byte_to_transmit);
 Std_ReturnType mcal_usart_receive_data(uint8_t* received_byte);
-int compare_strings(const char *str1, const char *str2);
 Std_ReturnType mcal_usart_transmit_string(const char string[]);
 
 #endif	/* MCAL_USART_H */
