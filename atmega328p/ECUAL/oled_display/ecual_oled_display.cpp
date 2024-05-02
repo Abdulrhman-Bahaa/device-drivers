@@ -339,7 +339,7 @@ Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_di
     return ret;
 }
 
-Std_ReturnType ecual_oled_display_scroll_status_set(const oled_display_config_t* oled_display, bool status) {
+Std_ReturnType ecual_oled_display_scroll_status_set(const oled_display_config_t* oled_display, uint8_t status) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display) {
         ret = E_NOT_OK;
