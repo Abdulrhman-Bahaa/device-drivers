@@ -36,7 +36,7 @@
 typedef unsigned char    uint8_t;
 typedef signed char      sint8_t;
 typedef signed short     sint16_t;
-typedef bool             Std_ReturnType;
+typedef uint8_t             Std_ReturnType;
 
 /* Variables Declarations ---------------------------------------------------*/
 
