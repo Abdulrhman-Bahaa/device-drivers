@@ -38,12 +38,12 @@ typedef enum {
 }pin_index_t;
 
 
-typedef enum : bool {
+typedef enum {
     OUTPUT = 0,
     INPUT
 }direction_t;
 
-typedef enum : bool {
+typedef enum {
     LOW = 0,
     HIGH
 }logic_t;
