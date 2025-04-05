@@ -1,31 +1,27 @@
 /**
  ******************************************************************************
- * @file       ecual_oled_display_addons.h
+ * @file       mcal_adc.h
  * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations of OLED display module
- * @date       2024-3-4
+ * @brief      This header file contains the declaration of adc interface
+ * @date       2023-12-27
  ******************************************************************************
 */
-#ifndef ECUAL_OLED_DISPLAY_ADDONS_H
-#define	ECUAL_OLED_DISPLAY_ADDONS_H
+#ifndef MCAL_ADC_H
+#define	MCAL_ADC_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../../MCAL/mcal_std_types.h"
 
 /* Macro Declarations -------------------------------------------------------*/
 
 /* Macro Functions Declarations ---------------------------------------------*/
+#define ADC_ENABLE   (ADCON0bits.ADON = 1)
+#define ADC_DISABLE  (ADCON0bits.ADON = 0)
 
 /* Data Type Declarations ---------------------------------------------------*/
 
 /* Variables Declarations ---------------------------------------------------*/
-extern const uint8_t assassins[1024];
-extern const uint8_t blackops[1024];
-extern const uint8_t tranformers[1024];
-extern const uint8_t onepiece[1024];
-extern const uint8_t max[1024];
-extern const uint8_t font[];
 
 /* Functions Declarations ---------------------------------------------------*/
 
-#endif	/* ECUAL_OLED_DISPLAY_ADDONS_H */
+#endif	/* MCAL_ADC_H */
+
