@@ -10,8 +10,7 @@
 #define	MCAL_GPIO_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../std/mcal_std_types.h"
-#include <util/delay.h>
+#include "../mcal_std_types.h"
 
 /* Macro Declarations -------------------------------------------------------*/
 #define PORT_MAX_NUMBER         3
@@ -55,8 +54,8 @@ typedef struct {
 
 typedef struct { 
     pin_location_t location;       
-    direction_t  direction : 1;     
-    logic_t      logic : 1;         
+    direction_t    direction : 1;     
+    logic_t        logic : 1;         
 }pin_config_t;
 
 /* Variables Declarations ---------------------------------------------------*/

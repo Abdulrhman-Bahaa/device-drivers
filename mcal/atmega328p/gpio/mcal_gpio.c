@@ -17,12 +17,12 @@ volatile uint8_t* pin_register[PORT_MAX_NUMBER] = {&PINB, &PINC, &PIND};
 /* Functions Implementations -------------------------------------------------*/
 Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config, direction_t direction){
     Std_ReturnType ret = E_OK;
-    uint8_t bit_posn = pin_config->pin;
+    uint8_t bit_posn = pin_config->location.pin;
     if((NULL == pin_config) || (bit_posn > PORT_PIN_MAX_NUMBER - 1)) {
         ret = E_NOT_OK;
     } 
     else {
-        volatile uint8_t* reg_addr = ddr_register[pin_config->port];
+        volatile uint8_t* reg_addr = ddr_register[pin_config->location.port];
         switch(direction){
             case INPUT:
                 CLEAR_BIT(*reg_addr,bit_posn);
@@ -39,12 +39,12 @@ Std_ReturnType mcal_gpio_pin_direction_initialize(const pin_config_t* pin_config
 
 Std_ReturnType mcal_gpio_pin_logic_write(const pin_config_t* pin_config, logic_t logic) {
     Std_ReturnType ret = E_OK;
-    uint8_t bit_posn = pin_config->pin;
+    uint8_t bit_posn = pin_config->location.pin;
     if((NULL == pin_config) || (bit_posn > PORT_PIN_MAX_NUMBER - 1)) {
         ret = E_NOT_OK;
     } 
     else {
-        volatile uint8_t* reg_addr = port_register[pin_config->port];
+        volatile uint8_t* reg_addr = port_register[pin_config->location.port];
         switch(logic) {
             case HIGH:
                 SET_BIT(*reg_addr,bit_posn);
@@ -61,12 +61,12 @@ Std_ReturnType mcal_gpio_pin_logic_write(const pin_config_t* pin_config, logic_t
 
 Std_ReturnType mcal_gpio_pin_logic_read(const pin_config_t* pin_config, logic_t* logic) {
     Std_ReturnType ret = E_OK;
-    uint8_t bit_posn = pin_config->pin;
+    uint8_t bit_posn = pin_config->location.pin;
     if ((NULL == pin_config) || (bit_posn > PORT_PIN_MAX_NUMBER - 1)) {
         ret = E_NOT_OK;
     }
     else {
-        volatile uint8_t* reg_addr = pin_register[pin_config->port];
+        volatile uint8_t* reg_addr = pin_register[pin_config->location.port];
         *logic = READ_BIT(*reg_addr,bit_posn); 
     }
     return ret;  
@@ -86,12 +86,12 @@ Std_ReturnType mcal_gpio_pin_initialize(const pin_config_t* pin_config){
 
 Std_ReturnType mcal_gpio_pin_logic_toggle(const pin_config_t* pin_config){
     Std_ReturnType ret = E_OK;
-    uint8_t bit_posn = pin_config->pin;
+    uint8_t bit_posn = pin_config->location.pin;
     if((NULL == pin_config) || (bit_posn > PORT_PIN_MAX_NUMBER - 1)) {
         ret = E_NOT_OK;
     }
     else {
-        volatile uint8_t* reg_addr = port_register[pin_config->port];
+        volatile uint8_t* reg_addr = port_register[pin_config->location.port];
         TOGGLE_BIT(*reg_addr, bit_posn);
     } 
     return ret;  
