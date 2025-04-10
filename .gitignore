@@ -4,4 +4,3 @@ platformio.ini
 src/
 include/
 test/
-lib/mcal/pic16f887/*
