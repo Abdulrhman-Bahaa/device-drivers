@@ -10,7 +10,7 @@
 #define	MCAL_GPIO_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../mcal_std_types.h"
+#include <atmega328p/mcal_std_types.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 #define PORT_MAX_NUMBER         3
@@ -49,22 +49,18 @@ typedef enum {
 
 typedef struct { 
     port_index_t port : 4;           
-    pin_index_t  pin : 4;              
-}pin_location_t;
-
-typedef struct { 
-    pin_location_t location;       
-    direction_t    direction : 1;     
-    logic_t        logic : 1;         
+    pin_index_t  pin : 4;    
+    const direction_t    direction : 1;     
+    const logic_t        logic : 1;         
 }pin_config_t;
 
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-Std_ReturnType mcal_gpio_pin_direction_write(const pin_location_t* pin_location, const direction_t direction);
-Std_ReturnType mcal_gpio_pin_logic_write(const pin_location_t* pin_location, const logic_t logic);
-Std_ReturnType mcal_gpio_pin_logic_read(const pin_location_t* pin_location, logic_t* logic);
-Std_ReturnType mcal_gpio_pin_logic_toggle(const pin_location_t* pin_location);
+Std_ReturnType mcal_gpio_pin_direction_write(const pin_config_t* pin_config, const direction_t direction);
+Std_ReturnType mcal_gpio_pin_logic_write(const pin_config_t* pin_config, const logic_t logic);
+Std_ReturnType mcal_gpio_pin_logic_read(const pin_config_t* pin_config, logic_t* logic);
+Std_ReturnType mcal_gpio_pin_logic_toggle(const pin_config_t* pin_config);
 Std_ReturnType mcal_gpio_pin_init(const pin_config_t* pin_config);
 
 #endif	/* MCAL_GPIO_H */
