@@ -14,6 +14,8 @@
 
 /* Macro Declarations -------------------------------------------------------*/
 #define BIT_MASK                        0x01
+#define STD_ON                          0x01
+#define STD_OFF                         0x00
 #define E_OK            (Std_ReturnType)0x01
 #define E_NOT_OK        (Std_ReturnType)0x00
 #define NULL                        (void*)0
