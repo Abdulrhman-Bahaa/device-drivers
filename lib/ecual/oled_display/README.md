@@ -13,4 +13,7 @@ ret |= ecual_oled_display_bit_mapping(&oled_display, (uint8_t*)batman, 128, 64, 
 ```
 
 The output on the screen:
-<img src="images/batman_logo.jpg" alt="Batman logo" width="200"/>
+<br>
+<br>
+
+<img src="/images/batman_logo.jpg" alt="Batman logo" width="400"/>
