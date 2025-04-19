@@ -11,6 +11,7 @@
 
 /* Includes -----------------------------------------------------------------*/
 #include <atmega328p/mcal_std_types.h>
+#include <avr/io.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 #define PORT_MAX_NUMBER         3
