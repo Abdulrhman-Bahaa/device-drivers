@@ -10,7 +10,7 @@
 #define	SSD1306_IMAGES_H
 
 /* Includes -----------------------------------------------------------------*/
-#include <std/mcal_std_types.h>
+#include <stdint.h>
 #include <avr/pgmspace.h>
 
 /* Macro Declarations -------------------------------------------------------*/
