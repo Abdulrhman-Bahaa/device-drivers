@@ -22,6 +22,7 @@ extern const unsigned char* epd_bitmap_allArray[42];
 extern const unsigned char* rotating_bitmap_allArray[121];
 extern const unsigned char* eye_bitmap_allArray[59];
 extern const unsigned char* key_bitmap_allArray[49];
+extern const unsigned char* bitmap_phone_call_allArray[41];
 
 /* Variables Declarations ---------------------------------------------------*/
 
