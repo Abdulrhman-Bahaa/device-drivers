@@ -32,7 +32,7 @@ typedef struct {
 /* Variables Declarations ---------------------------------------------------*/
 
 /* Functions Declarations ---------------------------------------------------*/
-Std_ReturnType mcal_i2c_init(void);
+Std_ReturnType mcal_i2c_init(i2c_config_t* i2c_config);
 Std_ReturnType mcal_i2c_start_condition(void);
 Std_ReturnType mcal_i2c_stop_condition(void);
 Std_ReturnType mcal_i2c_address_transmit(const uint8_t slave_address, i2c_master_operation_t master_operation);

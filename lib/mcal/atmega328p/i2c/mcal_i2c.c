@@ -12,7 +12,7 @@
 /* Variables Definitions -----------------------------------------------------*/
 
 /* Functions Implementations -------------------------------------------------*/
-Std_ReturnType mcal_i2c_init(void) {
+Std_ReturnType mcal_i2c_init(i2c_config_t* i2c_config) {
     Std_ReturnType ret = E_OK;
 
     pin_config_t pin_scl = {
@@ -37,8 +37,7 @@ Std_ReturnType mcal_i2c_init(void) {
     ret |= mcal_gpio_pin_init(&pin_sda);
 
     I2C_DISABLE();
-    // Set bit rate 100 kHz
-    TWBR = 72; // Bit rate register value for 100 kHz at 16 MHz CPU clock
+    TWBR = ((F_CPU / (i2c_config->serial_clock)) - 16) / 2;
     I2C_ENABLE();
     return ret;
 }
