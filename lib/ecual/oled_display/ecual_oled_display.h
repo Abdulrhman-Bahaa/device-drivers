@@ -18,10 +18,16 @@
 #include <util/delay.h>
 
 /* Macro Declarations -------------------------------------------------------*/
+#define OLED_DISPLAY_WIDTH                                                    128
+#define OLED_DISPLAY_HEIGHT                                                   64
+#define OLED_DISPLAY_PAGES_NUMBER                                             8
 #define OLED_DISPLAY_DISPLAY_ON                                               0xAF
 #define OLED_DISPLAY_SET_PAGE_START_ADDRESS_FOR_PAGE_ADDRESSING_MODE          0xB0
 #define OLED_DISPLAY_SET_LOWER_COLUMN_START_ADDRESS_FOR_PAGE_ADDRESSING_MODE  0x00
 #define OLED_DISPLAY_SET_HIGHER_COLUMN_START_ADDRESS_FOR_PAGE_ADDRESSING_MODE 0x10
+/* If OLED_DISPLAY_DRAWING_MODE is one, the oled expects vertical draw bitmap */
+#define OLED_DISPLAY_DRAWING_MODE                                             0x00
+
 
 /* Macro Functions Declarations ---------------------------------------------*/
 
@@ -57,7 +63,7 @@ Std_ReturnType ecual_oled_display_clear(const oled_display_config_t* oled_displa
 Std_ReturnType ecual_oled_display_contrast_set(const oled_display_config_t* oled_display, uint8_t contrast);
 Std_ReturnType ecual_oled_display_char_write(const oled_display_config_t* oled_display, const uint8_t char_to_display, const uint8_t width, const uint8_t height, uint8_t page, uint8_t column);
 Std_ReturnType ecual_oled_display_string_write(const oled_display_config_t* oled_display, const uint8_t string[], const uint8_t width, const uint8_t height, uint8_t page, uint8_t column);
-Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_display, const uint8_t** array_of_images, uint8_t array_length, uint8_t speed);
+Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_display, const uint8_t** array_of_images, uint8_t frames_num, int16_t delay_time);
 Std_ReturnType ecual_oled_display_scroll_status_set(const oled_display_config_t* oled_display, uint8_t status);
 Std_ReturnType ecual_oled_display_menu_init(const oled_display_menu_config_t* oled_display_menu, uint8_t item_to_select);
 Std_ReturnType ecual_oled_display_menu_item_select(const oled_display_menu_config_t* oled_display_menu, uint8_t item_to_select);
