@@ -71,3 +71,5 @@ The output on the screen:
 <img src="/images/batman_logo.jpg" alt="Batman logo" width="400"/>
 
 You can use [PICSimLab](https://github.com/lcgamboa/picsimlab) for a simulation: [oled_batman_logo.pzw](/simulations/oled_batman_logo.pzw)
+You can use [image2cpp](https://javl.github.io/image2cpp/) for bitmap an image
+For gif spliting [ezgif](https://ezgif.com/split)
