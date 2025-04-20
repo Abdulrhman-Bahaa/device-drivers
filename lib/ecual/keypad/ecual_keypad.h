@@ -10,8 +10,9 @@
 #define	ECUAL_KEYPAD_H
 
 /* Includes -----------------------------------------------------------------*/
-#include <gpio/mcal_gpio.h>
+#include <atmega328p/gpio/mcal_gpio.h>
 #include "ecual_keypad_configs.h"
+#include <util/delay.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 

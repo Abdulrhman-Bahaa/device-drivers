@@ -11,15 +11,13 @@
 #define	ECUAL_CHAR_LCD_H
 
 /* Includes ------------------------------------------------------------------*/
-#include "ecual_char_lcd_configs.h"
-#if !defined(CHAR_LCD_I2C)
-#include <atmega328.h>
-#endif
-#if defined(CHAR_LCD_I2C)
-#include "i2c/mcal_i2c.h"
-#endif
+#include "atmega328p/i2c/mcal_i2c.h"
+#include <util/delay.h>
 
 /* Macro Declarations --------------------------------------------------------*/
+//#define CHAR_LCD_I2C                1       
+#define CHAR_LCD_DATA_SIZE  4
+
 #define LCD_FIRST_ROW                       0x01
 #define LCD_SECOND_ROW                      0x02
 

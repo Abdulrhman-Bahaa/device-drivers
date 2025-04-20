@@ -10,7 +10,7 @@
 #define	ECUAL_LED_H
 
 /* Includes -----------------------------------------------------------------*/
-#include <gpio/mcal_gpio.h>
+#include <atmega328p/gpio/mcal_gpio.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 

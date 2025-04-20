@@ -11,10 +11,10 @@
 #define	ECUAL_WIFI_MODULE_H
 
 /* Includes -----------------------------------------------------------------*/
-#include <usart/mcal_usart.h>
+#include <atmega328p/usart/mcal_usart.h>
 #include <stdio.h>
 #include "string.h"
-
+#include <util/delay.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 

@@ -10,9 +10,9 @@
 #define	ECUAL_ULTRASONIC_SENSORS_H
 
 /* Includes -----------------------------------------------------------------*/
-#include "../../MCAL/gpio/mcal_gpio.h"
-#include "../../MCAL/timers/mcal_timer0.h"
-#include "../../MCAL/interrupts/external/mcal_external_interrupts.h"
+#include <atmega328p/gpio/mcal_gpio.h>
+#include <atmega328p/timers/mcal_timer0.h>
+#include <atmega328p/interrupts/external/mcal_external_interrupts.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 

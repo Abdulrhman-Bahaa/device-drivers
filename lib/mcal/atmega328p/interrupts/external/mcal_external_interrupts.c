@@ -42,11 +42,11 @@ Std_ReturnType mcal_interrupt_pin_change_init(const pin_change_interrupt_config_
         } else {
             ret = E_NOT_OK;
         }
-        pin_config_t pin_config_local = {
+        pin_location_t pin_location_local = {
             .port = port,
             .pin = interrupt_pin
         };
-        ret = mcal_gpio_pin_direction_initialize(&pin_config_local, INPUT);
+        ret |= mcal_gpio_pin_direction_write(&pin_location_local, INPUT);
         GLOBAL_INTERRUPT_ENABLE();
     }
     return ret;

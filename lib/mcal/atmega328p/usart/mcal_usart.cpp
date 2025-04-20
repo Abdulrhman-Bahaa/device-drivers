@@ -46,12 +46,12 @@ Std_ReturnType mcal_usart_init(const usart_config_t* usart) {
                 ret |= E_NOT_OK;
         }
         if (usart->usart_interrupt) {
-            usart_receive_isr_app_ptr = usart->usart_receive_callback_interrupt_function;
-             USART_RECEIVE_INTERRUPT_ENABLE();
-             GLOBAL_INTERRUPT_ENABLE();
+            // usart_receive_isr_app_ptr = usart->usart_receive_callback_interrupt_function;
+            // USART_RECEIVE_INTERRUPT_ENABLE();
+            // GLOBAL_INTERRUPT_ENABLE();
         }
         else {
-             USART_RECEIVE_INTERRUPT_DISABLE();
+            // USART_RECEIVE_INTERRUPT_DISABLE();
         }
         // Set frame format: 8data, 1 stop bit
         SET_BIT(UCSR0C, UCSZ00);

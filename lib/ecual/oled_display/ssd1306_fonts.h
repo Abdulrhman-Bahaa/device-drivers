@@ -24,7 +24,6 @@
  #ifndef SSD1306_FONTS_H
  #define SSD1306_FONTS_H
 
-#include <atmega328.h> 
 #include <avr/pgmspace.h>
 
 extern const uint8_t ssd1306xled_font6x8[] PROGMEM;

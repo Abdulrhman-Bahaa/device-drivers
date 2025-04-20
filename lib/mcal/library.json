@@ -1,0 +1,8 @@
+{
+    "name": "MySensorLib",
+    "version": "1.0.0",
+    "build": {
+      "srcFilter": "+<*> -<pic16f887/>"
+    }
+  }
+  

@@ -11,7 +11,8 @@
 #define	ECUAL_BUTTON_H
 
 /* Includes -----------------------------------------------------------------*/
-#include <gpio/mcal_gpio.h>
+#include <atmega328p/gpio/mcal_gpio.h>
+#include <util/delay.h>
 
 /* Macro Declarations -------------------------------------------------------*/
 

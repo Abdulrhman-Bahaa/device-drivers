@@ -15,8 +15,6 @@
 #include "ssd1306_fonts.h"
 #include "ssd1306_images.h"
 #include "ssd1306_gifs.h"
-
-#define F_CPU 16000000UL // For a 16 MHz crystal
 #include <util/delay.h>
 
 /* Macro Declarations -------------------------------------------------------*/
