@@ -69,3 +69,5 @@ The output on the screen:
 <br>
 
 <img src="/images/batman_logo.jpg" alt="Batman logo" width="400"/>
+
+You can use [PICSimLab](https://github.com/lcgamboa/picsimlab) for a simulation: [oled_batman_logo.pzw](/simulations/oled_batman_logo.pzw)
