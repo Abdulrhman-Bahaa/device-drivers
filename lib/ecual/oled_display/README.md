@@ -87,7 +87,7 @@ magick input.png -trim +repage -resize 60x60 output.png
 or using a website: [Ezgif](https://ezgif.com/)
 2. For spliting use:
 ```
-magick input.gif -resize 60x60 frame_%03d.png
+magick input.gif -coalesce -resize 60x60 frame_%03d.png
 ```
 3. For step 3, use [image2cpp](https://javl.github.io/image2cpp/)
 
