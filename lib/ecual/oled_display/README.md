@@ -74,7 +74,7 @@ The output on the screen:
 
 ## Bitmapping Steps:
 
-1. Trim the excess transparent (or uniform) background around the logo and then extend the background to fit the trimmed logo precisely.
+1. Trim the excess transparent (or uniform) background around the shape and then extend the background to fit the trimmed logo precisely.
 2. Resize the image for your need (If gif, split it into frames)
 4. Bitmap the image into an array
 5. Pass it to the bitmapping function
@@ -88,4 +88,6 @@ magick input.png -trim +repage -resize 60x60 output.png
 ```
 magick input.gif -resize 60x60 frame_%03d.png
 ```
-3. For step 3, use [image2cpp](https://javl.github.io/image2cpp/) 
+3. For step 3, use [image2cpp](https://javl.github.io/image2cpp/)
+
+To get some icons and gifs, use [Flaticon](https://www.flaticon.com/)
