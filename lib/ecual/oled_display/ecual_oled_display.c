@@ -265,20 +265,20 @@ Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_displ
         ret = E_NOT_OK;
     }
     else {
-        uint8_t column = 0;
+        // uint8_t column = 0;
         // ret |= ecual_oled_display_addressing_mode(oled_display, 2);
-        // for (uint8_t page_num = start_page; page_num < end_page; page_num++) {
+        // for (uint8_t page_num = start_page; page_num < end_page + 1; page_num++) {
         //     if (end_page == page_num) {
         //         column = end_column;
         //     }
         //     else {
         //         column = 127;
         //     }
-        //     ret |= ecual_oled_display_cursor_set(oled_display, 3, column);
+        //     ret |= ecual_oled_display_cursor_set(oled_display, page_num, column);
         //     ret |= mcal_i2c_start_condition();
         //     ret |= mcal_i2c_address_transmit((oled_display->oled_display_address), WRITE);
         //     ret |= data_stream();
-        //     for (uint8_t column_num = start_column; column_num < column; column_num++) {
+        //     for (uint8_t column_num = start_column; column_num < column + 1; column_num++) {
         //         ret |= mcal_i2c_data_transmit(data_to_draw); 
         //     }
         //     ret |= mcal_i2c_stop_condition();      
@@ -289,7 +289,7 @@ Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_displ
         ret |= mcal_i2c_start_condition();
         ret |= mcal_i2c_address_transmit((oled_display->oled_display_address), WRITE);
         ret |= data_stream();
-        for (uint16_t bytes_number = 0; bytes_number < ((end_page - start_page) * 128) + (end_column - start_column); bytes_number++) {
+        for (uint16_t bytes_number = 0; bytes_number < ((end_page - start_page + 1) * 128) + (end_column - start_column); bytes_number++) {
             ret |= mcal_i2c_data_transmit(data_to_draw); 
         }
     }
@@ -352,14 +352,16 @@ Std_ReturnType ecual_oled_display_contrast_set(const oled_display_config_t* oled
     return ret;
 }
 
-Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_display, const uint8_t** array_of_images, uint8_t frames_num, int16_t delay_time) {
+Std_ReturnType ecual_oled_display_animation(const oled_display_config_t* oled_display, const uint8_t** array_of_images, 
+                                            const uint8_t width, const uint8_t height,  uint8_t page, 
+                                            uint8_t column, uint8_t frames_num, int16_t delay_time) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display) {
         ret = E_NOT_OK;
     }
     else {
         static uint8_t i = 0;
-        ret |= ecual_oled_display_bit_mapping(oled_display, array_of_images[i], 64, 64, 0, 29);
+        ret |= ecual_oled_display_bit_mapping(oled_display, array_of_images[i], width, height, page, column);
         if (frames_num - 1 == i) {
             i = 0;
         }
