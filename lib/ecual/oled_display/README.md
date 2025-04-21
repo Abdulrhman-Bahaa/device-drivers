@@ -76,8 +76,8 @@ The output on the screen:
 
 1. Trim the excess transparent (or uniform) background around the logo and then extend the background to fit the trimmed logo precisely.
 2. Resize the image for your need (If gif, split it into frames)
-3. Bitmap the image into an array
-4. Pass it to the bitmapping function
+4. Bitmap the image into an array
+5. Pass it to the bitmapping function
 
 ## Recomended Tools
 1. For step 1 and 2, use the Follwong [ImageMagick](https://imagemagick.org/index.php) command:
@@ -86,6 +86,6 @@ magick input.png -trim +repage -resize 60x60 output.png
 ```
 2. For spliting use:
 ```
-magick input.gif frame_%03d.png
+magick input.gif -resize 60x60 frame_%03d.png
 ```
 3. For step 3, use [image2cpp](https://javl.github.io/image2cpp/) 
