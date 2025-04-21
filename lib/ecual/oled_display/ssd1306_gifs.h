@@ -23,6 +23,7 @@ extern const unsigned char* rotating_bitmap_allArray[121];
 extern const unsigned char* eye_bitmap_allArray[59];
 extern const unsigned char* key_bitmap_allArray[49];
 extern const unsigned char* bitmap_phone_call_allArray[41];
+extern const unsigned char* gif_geometry_allArray[120];
 
 /* Variables Declarations ---------------------------------------------------*/
 
