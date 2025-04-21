@@ -28,6 +28,9 @@ extern const uint8_t max[] PROGMEM;
 extern const uint8_t batman[] PROGMEM;
 extern const uint8_t epd_bitmap_Outline [] PROGMEM;
 extern const uint8_t epd_bitmap_lock [] PROGMEM;
+extern const unsigned char bitmap_batman_1_allArray [] PROGMEM;
+extern const unsigned char bitmap_geometry_heptagon_allArray [] PROGMEM;
+
 
 /* Functions Declarations ---------------------------------------------------*/
 
