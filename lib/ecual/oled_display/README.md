@@ -84,6 +84,7 @@ The output on the screen:
 ```
 magick input.png -trim +repage -resize 60x60 output.png
 ```
+or using a website: [Ezgif](https://ezgif.com/)
 2. For spliting use:
 ```
 magick input.gif -resize 60x60 frame_%03d.png
