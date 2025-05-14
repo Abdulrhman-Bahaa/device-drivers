@@ -10,6 +10,7 @@
 #include "ecual_oled_display.h"
 
 /* Variables Definitions -----------------------------------------------------*/
+uint8_t framebuffer[OLED_DISPLAY_PAGES_NUMBER][OLED_DISPLAY_WIDTH] = {0};
 
 /* Functions Implementations -------------------------------------------------*/
 int round_up(double num) {
@@ -84,7 +85,7 @@ Std_ReturnType ecual_oled_display_addressing_mode(const oled_display_config_t* o
         }
         else {
             uint16_t index = 0;
-            uint8_t byte_to_send = 0, shifting = 0, h = 0, counter = height, width_in_bytes = round_up(width / 8.0);    
+            uint8_t byte_to_send = 0, shifting = 0, h = 0, counter = height, width_in_bytes = round_up(width / 8.0);   
             ret |= ecual_oled_display_addressing_mode(oled_display, 2);
             for (uint8_t page_num = 0; page_num < round_up(height / 8.0); page_num++) {
                 ret |= ecual_oled_display_cursor_set(oled_display, page + page_num, column); 
@@ -201,6 +202,7 @@ Std_ReturnType ecual_oled_display_init(const oled_display_config_t* oled_display
     }
     else {
         uint8_t oled_configurations[] = {
+            0x00, // command_stream
             0xA8, 0x3F, // Set MUX Ratio to 64
             0xD3, 0x00, // Set Display Offset
             0x40, // Set Display Start Line to 0x00
@@ -241,20 +243,58 @@ Std_ReturnType ecual_oled_display_cursor_set(const oled_display_config_t* oled_d
     return ret;
 }
 
+
+Std_ReturnType ecual_oled_write_pixel(const oled_display_config_t* oled_display, uint8_t value, uint8_t x, uint8_t y) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display) {
+        ret = E_NOT_OK;
+    }
+    else {
+        uint8_t data[] = {SINGLE_DATA_BYTE, 0x00};
+
+        ret |= ecual_oled_display_cursor_set(oled_display, (y / 8), x);
+
+        framebuffer[(y / 8)][x] |= (value << (y % 8));
+        data[1] = framebuffer[(y / 8)][x];
+
+        ret |= mcal_i2c_master_transmit((oled_display->oled_display_address), data, 2);
+    }
+    return ret;
+}
+
 Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_display, uint8_t data_to_draw, uint8_t start_page, uint8_t start_column, uint8_t end_page, uint8_t end_column) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display) {
         ret = E_NOT_OK;
     }
     else {
-        ret |= ecual_oled_display_addressing_mode(oled_display, 0);
-        ret |= ecual_oled_display_cursor_set(oled_display, start_page, start_column);
-        ret |= mcal_i2c_start_condition();
-        ret |= mcal_i2c_address_transmit((oled_display->oled_display_address), WRITE);
-        ret |= data_stream();
-        for (uint16_t bytes_number = 0; bytes_number < ((end_page - start_page + 1) * 128) + (end_column - start_column); bytes_number++) {
-            ret |= mcal_i2c_byte_transmit(data_to_draw); 
+        uint8_t column = 0;
+        ret |= ecual_oled_display_addressing_mode(oled_display, 2);
+        for (uint8_t page_num = start_page; page_num < end_page + 1; page_num++) {
+            if (end_page == page_num) {
+                column = end_column;
+            }
+            else {
+                column = 127;
+            }
+            ret |= ecual_oled_display_cursor_set(oled_display, page_num, column);
+            ret |= mcal_i2c_start_condition();
+            ret |= mcal_i2c_address_transmit((oled_display->oled_display_address), WRITE);
+            ret |= data_stream();
+            for (uint8_t column_num = start_column; column_num < column + 1; column_num++) {
+                ret |= mcal_i2c_byte_transmit(data_to_draw); 
+            }
+            ret |= mcal_i2c_stop_condition();      
         }
+
+        // ret |= ecual_oled_display_addressing_mode(oled_display, 0);
+        // ret |= ecual_oled_display_cursor_set(oled_display, start_page, start_column);
+        // ret |= mcal_i2c_start_condition();
+        // ret |= mcal_i2c_address_transmit((oled_display->oled_display_address), WRITE);
+        // ret |= data_stream();
+        // for (uint16_t bytes_number = 0; bytes_number < ((end_page - start_page + 1) * 128) + (end_column - start_column); bytes_number++) {
+        //     ret |= mcal_i2c_byte_transmit(data_to_draw); 
+        // }
     }
     return ret;
 }
@@ -392,4 +432,6 @@ Std_ReturnType ecual_oled_display_menu_item_select(const oled_display_menu_confi
     }
     return ret;
 }
+
+
 

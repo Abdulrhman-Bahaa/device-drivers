@@ -27,6 +27,11 @@
 #define OLED_DISPLAY_SET_HIGHER_COLUMN_START_ADDRESS_FOR_PAGE_ADDRESSING_MODE 0x10
 /* If OLED_DISPLAY_DRAWING_MODE is one, the oled expects vertical draw bitmap */
 #define OLED_DISPLAY_DRAWING_MODE                                             0x00
+#define SINGLE_COMMAND_BYTE                                                   0x80
+#define COMMAND_STREAM                                                        0x00
+#define SINGLE_DATA_BYTE                                                      0xC0
+#define DATA_STREAM                                                           0x40
+
 
 
 /* Macro Functions Declarations ---------------------------------------------*/
@@ -45,6 +50,7 @@ typedef struct {
 }oled_display_menu_config_t;
 
 /* Variables Declarations ---------------------------------------------------*/
+extern uint8_t framebuffer[OLED_DISPLAY_PAGES_NUMBER][OLED_DISPLAY_WIDTH]; // For a 128x64 display
 
 /* Functions Declarations ---------------------------------------------------*/
 Std_ReturnType single_command_byte(void);
@@ -58,6 +64,9 @@ Std_ReturnType ecual_oled_display_bit_mapping(const oled_display_config_t* oled_
 Std_ReturnType ecual_oled_display_cursor_set(const oled_display_config_t* oled_display, uint8_t page, uint8_t column);
 Std_ReturnType ecual_oled_display_init(const oled_display_config_t* oled_display);
 Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_display, uint8_t data_to_draw, uint8_t start_page, uint8_t start_column, uint8_t end_page, uint8_t end_column);
+
+Std_ReturnType ecual_oled_write_pixel(const oled_display_config_t* oled_display, uint8_t value, uint8_t x, uint8_t y);
+
 Std_ReturnType ecual_oled_display_rectangle_draw(const oled_display_config_t* oled_display, uint8_t thickness, uint8_t page, uint8_t column, uint8_t width, uint8_t height);
 Std_ReturnType ecual_oled_display_clear(const oled_display_config_t* oled_display);
 Std_ReturnType ecual_oled_display_contrast_set(const oled_display_config_t* oled_display, uint8_t contrast);
