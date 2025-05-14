@@ -44,7 +44,7 @@ This file contains the implementation of the ECUAL (External Control and Abstrac
 ## Dependencies
 
 This file depends on the following:
-- **MCAL I2C Layer**: Functions like `mcal_i2c_start_condition`, `mcal_i2c_data_transmit`, and `mcal_i2c_stop_condition` are used for I2C communication.
+- **MCAL I2C Layer**: Functions like `mcal_i2c_start_condition`, `mcal_i2c_byte_transmit`, and `mcal_i2c_stop_condition` are used for I2C communication.
 - **Font Data**: Fonts like `ssd1306xled_font6x8` and `ssd1306xled_font8x16` are used for rendering text.
 - **Macros**: Macros like `READ_BIT` and constants for OLED commands are used throughout the file.
 

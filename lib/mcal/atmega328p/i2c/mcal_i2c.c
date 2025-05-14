@@ -44,11 +44,11 @@ Std_ReturnType mcal_i2c_init(i2c_config_t* i2c_config) {
 
 Std_ReturnType mcal_i2c_address_transmit(const uint8_t slave_address, i2c_master_operation_t master_operation) {
     Std_ReturnType ret = E_OK;
-    mcal_i2c_data_transmit(slave_address | master_operation);
+    mcal_i2c_byte_transmit(slave_address | master_operation);
     return ret;
 }
 
-Std_ReturnType mcal_i2c_data_transmit(const uint8_t data_to_transmit) {
+Std_ReturnType mcal_i2c_byte_transmit(const uint8_t data_to_transmit) {
     Std_ReturnType ret = E_OK;
     TWDR = data_to_transmit;
     TWCR = (1<<TWINT) | (1<<TWEN);
@@ -72,5 +72,20 @@ Std_ReturnType mcal_i2c_start_condition(void) {
 Std_ReturnType mcal_i2c_stop_condition(void) {
     Std_ReturnType ret = E_OK;
     TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
+    return ret;
+}
+
+Std_ReturnType mcal_i2c_master_transmit(uint8_t slave_address, uint8_t* data, uint8_t size) {
+    Std_ReturnType ret = E_OK;
+
+    ret |= mcal_i2c_start_condition();
+    ret |= mcal_i2c_address_transmit(slave_address, WRITE);
+
+    for (uint8_t i = 0; i < size; i++) {
+        ret |= mcal_i2c_byte_transmit(data[i]);
+    }
+    
+    ret |= mcal_i2c_stop_condition();
+
     return ret;
 }

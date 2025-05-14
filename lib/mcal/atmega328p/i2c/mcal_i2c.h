@@ -36,6 +36,7 @@ Std_ReturnType mcal_i2c_init(i2c_config_t* i2c_config);
 Std_ReturnType mcal_i2c_start_condition(void);
 Std_ReturnType mcal_i2c_stop_condition(void);
 Std_ReturnType mcal_i2c_address_transmit(const uint8_t slave_address, i2c_master_operation_t master_operation);
-Std_ReturnType mcal_i2c_data_transmit(const uint8_t data_to_transmit);
+Std_ReturnType mcal_i2c_byte_transmit(const uint8_t data_to_transmit);
+Std_ReturnType mcal_i2c_master_transmit(uint8_t slave_address, uint8_t* data, uint8_t size);
 
 #endif	/* MCAL_I2C_H */
