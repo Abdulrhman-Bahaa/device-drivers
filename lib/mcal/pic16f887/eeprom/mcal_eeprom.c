@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_eeprom.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file includes implementations of eeprom interfaces
- * @date       2023-12-20
+ * \file       mcal_eeprom.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file includes implementations of eeprom interfaces
+ * \date       2023-12-20
  ******************************************************************************
 */
 #include "mcal_eeprom.h"

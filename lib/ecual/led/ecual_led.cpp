@@ -1,9 +1,9 @@
  /**
  ******************************************************************************
- * @file       ecual_led.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the implementations for led interfaces
- * @date       2024-3-15
+ * \file       ecual_led.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the implementations for led interfaces
+ * \date       2024-3-15
  ******************************************************************************
 */
 #include "ecual_led.h"

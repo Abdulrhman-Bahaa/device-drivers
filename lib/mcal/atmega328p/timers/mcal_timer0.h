@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_timer0.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for timer0 module
- * @date       2024-2-12
+ * \file       mcal_timer0.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations for timer0 module
+ * \date       2024-2-12
  ******************************************************************************
 */
 #ifndef MCAL_TIMER0_H

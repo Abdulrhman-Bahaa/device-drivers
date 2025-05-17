@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_inter.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for interrupts module
- * @date       2023-12-10
+ * \file       mcal_inter.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations for interrupts module
+ * \date       2023-12-10
  ******************************************************************************
 */
 #ifndef MCAL_INTERRUPT_ISR_H

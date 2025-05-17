@@ -1,10 +1,10 @@
  /**
  ******************************************************************************
- * @file       ecual_keypad_configs.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains configurations for keypad 
+ * \file       ecual_keypad_configs.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains configurations for keypad 
  *             module
- * @date       2024-3-15
+ * \date       2024-3-15
  ******************************************************************************
 */
 #ifndef ECUAL_KEYPAD_CONFIGS_H

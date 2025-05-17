@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       mcal_external_interrupts.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for external 
+ * \file       mcal_external_interrupts.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations for external 
  *             interrupts module
- * @date       2024-2-16
+ * \date       2024-2-16
  ******************************************************************************
 */
 #ifndef MCAL_EXTERNAL_INTERRUPTS_H

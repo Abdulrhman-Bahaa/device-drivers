@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @mainpage   Example Application for GPIO driver
- * @file       gpio.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the main function and the application
- * @date       2025-04-10
+ * \mainpage   Example Application for GPIO driver
+ * \file       gpio.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the main function and the application
+ * \date       2025-04-10
  ******************************************************************************
  */
 /* Includes -----------------------------------------------------------------*/
@@ -55,9 +55,9 @@ int main(void) {
 
 /* Functions Implementations -------------------------------------------------*/
 /**
- * @brief       This function will include calls of functions to initialize 
+ * \brief       This function will include calls of functions to initialize 
  *              application's interfaces
- * @return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
+ * \return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
 */
 Std_ReturnType app_init(void) {
   Std_ReturnType ret = E_OK;

@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       mcal_inter.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for char interrupts
+ * \file       mcal_inter.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the implementations for char interrupts
  *             interfaces
- * @date       2023-12-10
+ * \date       2023-12-10
  ******************************************************************************
 */
 #include "mcal_interrupt_isr.h"

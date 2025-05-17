@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_eeprom.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declaration of eeprom interface
- * @date       2023-12-20
+ * \file       mcal_eeprom.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declaration of eeprom interface
+ * \date       2023-12-20
  ******************************************************************************
 */
 #ifndef MCAL_EEPROM_H

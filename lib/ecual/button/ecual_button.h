@@ -1,10 +1,10 @@
  /**
  ******************************************************************************
- * @file       ecual_button.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declarations for button 
+ * \file       ecual_button.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declarations for button 
  *             interfaces
- * @date       2023-9-06
+ * \date       2023-9-06
  ******************************************************************************
 */
 #ifndef ECUAL_BUTTON_H

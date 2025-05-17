@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       ecual_char_lcd.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for char lcd 
+ * \file       ecual_char_lcd.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the implementations for char lcd 
  *	       interfaces
- * @date       2023-12-06
+ * \date       2023-12-06
  ******************************************************************************
 */
 #include "ecual_char_lcd.h"

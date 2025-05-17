@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_internal_interrupts.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for interrupts module
- * @date       2024-2-16
+ * \file       mcal_internal_interrupts.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations for interrupts module
+ * \date       2024-2-16
  ******************************************************************************
 */
 #ifndef MCAL_INTERNAL_INTERRUPTS_H

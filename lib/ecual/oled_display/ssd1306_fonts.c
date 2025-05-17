@@ -26,7 +26,7 @@
   * ssd1306xled_font8x16 is by Neven Boyanov
   *
   * @created: 2014-08-12
-  * @author: Neven Boyanov
+  * \author: Neven Boyanov
   *
   * Copyright (c) 2015 Neven Boyanov, Tinusaur Team. All Rights Reserved.
   * Distributed as open source software under MIT License, see LICENSE.txt file.

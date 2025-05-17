@@ -1,10 +1,10 @@
  /**
  ******************************************************************************
- * @file       ecual_char_lcd.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declarations for char lcd 
+ * \file       ecual_char_lcd.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declarations for char lcd 
  *             interfaces
- * @date       2023-12-06
+ * \date       2023-12-06
  ******************************************************************************
 */
 #ifndef ECUAL_CHAR_LCD_H

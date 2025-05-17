@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       mcal_mssp.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains implementations for the MSSP module
+ * \file       mcal_mssp.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains implementations for the MSSP module
  *             functions
- * @date       2024-2-22
+ * \date       2024-2-22
  ******************************************************************************
 */
 #include "mcal_i2c.h"

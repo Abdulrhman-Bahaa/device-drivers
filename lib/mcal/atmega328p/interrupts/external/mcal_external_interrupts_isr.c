@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       mcal_external_interrupts_isr.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for external 
+ * \file       mcal_external_interrupts_isr.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the implementations for external 
  *             interrupts isr
- * @date       2024-2-16
+ * \date       2024-2-16
  ******************************************************************************
 */
 #include "mcal_external_interrupts_isr.h"

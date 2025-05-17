@@ -1,10 +1,10 @@
  /**
  ******************************************************************************
- * @file       ecual_wifi_module.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the implementations for wifi module
+ * \file       ecual_wifi_module.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the implementations for wifi module
  *             interfaces
- * @date       2024-3-08
+ * \date       2024-3-08
  ******************************************************************************
 */
 #include "ecual_wifi_module.h"

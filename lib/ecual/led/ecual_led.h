@@ -1,9 +1,9 @@
  /**
  ******************************************************************************
- * @file       ecual_led.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declarations for led interfaces
- * @date       2024-3-15
+ * \file       ecual_led.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declarations for led interfaces
+ * \date       2024-3-15
  ******************************************************************************
 */
 #ifndef ECUAL_LED_H

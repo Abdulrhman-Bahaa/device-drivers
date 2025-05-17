@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_i2c.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations of I2C module
- * @date       2024-03-03
+ * \file       mcal_i2c.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations of I2C module
+ * \date       2024-03-03
  ******************************************************************************
 */
 #ifndef MCAL_I2C_H

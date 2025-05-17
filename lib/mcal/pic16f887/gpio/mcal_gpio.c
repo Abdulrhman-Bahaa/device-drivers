@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       mcal_gpio.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains implementations for the gpio module
+ * \file       mcal_gpio.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains implementations for the gpio module
  *             functions
- * @date       2023-12-06
+ * \date       2023-12-06
  ******************************************************************************
 */
 #include "mcal_gpio.h"

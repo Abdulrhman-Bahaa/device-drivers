@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       ssd1306_images.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations of OLED display module
- * @date       2024-3-4
+ * \file       ssd1306_images.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations of OLED display module
+ * \date       2024-3-4
  ******************************************************************************
 */
 #ifndef SSD1306_IMAGES_H

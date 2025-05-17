@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_timer2.c
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes implementations for CCP1 module
- * @date       2024-1-26
+ * \file       mcal_timer2.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes implementations for CCP1 module
+ * \date       2024-1-26
  ******************************************************************************
 */
 #include "mcal_timer2.h"

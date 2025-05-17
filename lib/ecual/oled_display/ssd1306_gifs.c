@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       ssd1306_gifs.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for char lcd 
+ * \file       ssd1306_gifs.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the implementations for char lcd 
  *             interfaces
- * @date       2024-3-22
+ * \date       2024-3-22
  ******************************************************************************
 */
 #include "ssd1306_gifs.h"

@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       std_types.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes a standard data types that be used in this project
- * @date       2023-11-18
+ * \file       std_types.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes a standard data types that be used in this project
+ * \date       2023-11-18
  ******************************************************************************
 */
 #ifndef HAL_STD_TYPES_H

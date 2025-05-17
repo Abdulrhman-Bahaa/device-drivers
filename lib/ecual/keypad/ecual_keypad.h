@@ -1,9 +1,9 @@
  /**
  ******************************************************************************
- * @file       ecual_keypad.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declarations for keypad interfaces
- * @date       2024-3-15
+ * \file       ecual_keypad.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declarations for keypad interfaces
+ * \date       2024-3-15
  ******************************************************************************
 */
 #ifndef ECUAL_KEYPAD_H

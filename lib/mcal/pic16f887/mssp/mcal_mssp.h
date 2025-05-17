@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_mssp.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations of MSSP module
- * @date       2024-2-22
+ * \file       mcal_mssp.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations of MSSP module
+ * \date       2024-2-22
  ******************************************************************************
 */
 #ifndef MCAL_MSSP_H

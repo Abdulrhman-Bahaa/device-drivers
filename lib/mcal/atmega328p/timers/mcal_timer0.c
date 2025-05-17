@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_timer0.c
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes implementations for TIMER0 module
- * @date       2024-2-12
+ * \file       mcal_timer0.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes implementations for TIMER0 module
+ * \date       2024-2-12
  ******************************************************************************
 */
 #include "mcal_timer0.h"

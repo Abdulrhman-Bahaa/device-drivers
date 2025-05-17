@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       ecual_ultrasonic_sensors.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for ultrasonic_sensors
- * @date       2024-2-13
+ * \file       ecual_ultrasonic_sensors.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the implementations for ultrasonic_sensors
+ * \date       2024-2-13
  ******************************************************************************
 */
 #include "ecual_ultrasonic_sensors.h"

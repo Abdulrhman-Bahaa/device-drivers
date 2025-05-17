@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_std_types.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes a standard data types that be used in this project
- * @date       2024-2-09
+ * \file       mcal_std_types.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes a standard data types that be used in this project
+ * \date       2024-2-09
  ******************************************************************************
 */
 #ifndef MCAL_STD_TYPES_H

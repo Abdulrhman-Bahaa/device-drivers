@@ -1,9 +1,9 @@
  /**
  ******************************************************************************
- * @file       ecual_ultrasonic_sensors.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declarations for ultrasonic_sensors
- * @date       2024-2-13
+ * \file       ecual_ultrasonic_sensors.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declarations for ultrasonic_sensors
+ * \date       2024-2-13
  ******************************************************************************
 */
 #ifndef ECUAL_ULTRASONIC_SENSORS_H

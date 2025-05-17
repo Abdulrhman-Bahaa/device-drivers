@@ -1,8 +1,8 @@
 /*
  ******************************************************************************
- * @file           : ecual_button.c
- * @author         : Abdulrhman Bahaa
- * @brief          : Contains the functionality of my application
+ * \file           : ecual_button.c
+ * \author         : Abdulrhman Bahaa
+ * \brief          : Contains the functionality of my application
  ******************************************************************************
 */
 #include "ecual_button.h"

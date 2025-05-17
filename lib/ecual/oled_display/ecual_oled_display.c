@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       ecual_oled_display.c
- * @author     Abdulrhman Bahaa
- * @brief      This source file contains the implementations for char lcd 
+ * \file       ecual_oled_display.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This source file contains the implementations for char lcd 
  *             interfaces
- * @date       2024-02-29
+ * \date       2024-02-29
  ******************************************************************************
 */
 #include "ecual_oled_display.h"

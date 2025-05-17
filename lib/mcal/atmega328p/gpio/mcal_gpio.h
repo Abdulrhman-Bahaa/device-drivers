@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_gpio.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations of gpio module
- * @date       2024-2-09
+ * \file       mcal_gpio.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations of gpio module
+ * \date       2024-2-09
  ******************************************************************************
 */
 #ifndef MCAL_GPIO_H

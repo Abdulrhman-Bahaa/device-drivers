@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_adc.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file contains the declaration of adc interface
- * @date       2023-12-27
+ * \file       mcal_adc.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file contains the declaration of adc interface
+ * \date       2023-12-27
  ******************************************************************************
 */
 #ifndef MCAL_ADC_H

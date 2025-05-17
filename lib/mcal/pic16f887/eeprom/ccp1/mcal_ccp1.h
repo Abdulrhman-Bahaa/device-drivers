@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_ccp1.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for CCP2 module
- * @date       2024-1-19
+ * \file       mcal_ccp1.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations for CCP2 module
+ * \date       2024-1-19
  ******************************************************************************
 */
 #ifndef MCAL_CCP1_H

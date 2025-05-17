@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       mcal_external_interrupts_isr.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations for external interrupts isr
- * @date       2024-2-16
+ * \file       mcal_external_interrupts_isr.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations for external interrupts isr
+ * \date       2024-2-16
  ******************************************************************************
 */
 #ifndef MCAL_EXTERNAL_INTERRUPTS_ISR_H

@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file       ecual_oled_display.h
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes declarations of OLED display module
- * @date       2024-2-29
+ * \file       ecual_oled_display.h
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes declarations of OLED display module
+ * \date       2024-2-29
  ******************************************************************************
 */
 #ifndef ECUAL_OLED_DISPLAY_H

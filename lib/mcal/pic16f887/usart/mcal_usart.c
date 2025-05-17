@@ -1,10 +1,10 @@
 /**
  ******************************************************************************
- * @file       mcal_usart.c
- * @author     Abdulrhman Bahaa
- * @brief      This header file includes implementations for USART module
+ * \file       mcal_usart.c
+ * \author     Abdulrhman Bahaa
+ * \brief      This header file includes implementations for USART module
  *             The specific model used is PIC16F887.
- * @date       2024-1-31
+ * \date       2024-1-31
  ******************************************************************************
 */
 #include "mcal_usart.h"
