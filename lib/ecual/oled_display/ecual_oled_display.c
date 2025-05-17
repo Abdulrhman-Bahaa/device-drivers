@@ -262,6 +262,25 @@ Std_ReturnType ecual_oled_write_pixel(const oled_display_config_t* oled_display,
     return ret;
 }
 
+Std_ReturnType ecual_oled_create_line(const oled_display_config_t* oled_display, uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end) {
+    Std_ReturnType ret = E_OK;
+    if (NULL == oled_display) {
+        ret = E_NOT_OK;
+    }
+    else {
+        float slope = (float)(y_end - y_start) / (x_end - x_start);
+
+        for (uint8_t x = x_start; x < x_end; x++) {
+            for (uint8_t y = y_start; y < (x * slope) - (((x - 1) * slope)) + y_start; y++) {
+                ecual_oled_write_pixel(oled_display, 1, x, (x * slope) + y);
+            }
+        }  
+    }
+    return ret;
+}
+
+
+
 Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_display, uint8_t data_to_draw, uint8_t start_page, uint8_t start_column, uint8_t end_page, uint8_t end_column) {
     Std_ReturnType ret = E_OK;
     if (NULL == oled_display) {

@@ -65,7 +65,26 @@ Std_ReturnType ecual_oled_display_cursor_set(const oled_display_config_t* oled_d
 Std_ReturnType ecual_oled_display_init(const oled_display_config_t* oled_display);
 Std_ReturnType ecual_oled_display_drawer(const oled_display_config_t* oled_display, uint8_t data_to_draw, uint8_t start_page, uint8_t start_column, uint8_t end_page, uint8_t end_column);
 
+/**
+ * \brief       This function will write a pixel on the OLED display
+ * \param[in]   oled_display: pointer to the OLED display configuration structure
+ * \param[in]   value: value of the pixel (0 or 1)
+ * \param[in]   x: x coordinate of the pixel
+ * \param[in]   y: y coordinate of the pixel
+ * \return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
+ */
 Std_ReturnType ecual_oled_write_pixel(const oled_display_config_t* oled_display, uint8_t value, uint8_t x, uint8_t y);
+
+/**
+ * \brief       This function will create a line between two points
+ * \param[in]   oled_display: pointer to the OLED display configuration structure
+ * \param[in]   x_start: starting x coordinate of the line
+ * \param[in]   y_start: starting y coordinate of the line
+ * \param[in]   x_end: ending x coordinate of the line
+ * \param[in]   y_end: ending y coordinate of the line
+ * \return      Returns E_OK(0x01) or E_NOT_OK(0x00) (succeeded and not succeeded)
+ */
+Std_ReturnType ecual_oled_create_line(const oled_display_config_t* oled_display, uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end);
 
 Std_ReturnType ecual_oled_display_rectangle_draw(const oled_display_config_t* oled_display, uint8_t thickness, uint8_t page, uint8_t column, uint8_t width, uint8_t height);
 Std_ReturnType ecual_oled_display_clear(const oled_display_config_t* oled_display);
