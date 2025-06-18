@@ -4,3 +4,5 @@ platformio.ini
 src/
 include/
 test/
+Doxyfile
+docs/
