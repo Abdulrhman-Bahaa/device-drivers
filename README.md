@@ -8,7 +8,7 @@ for hobby and educational projects requiring direct access to hardware.
 
 ![oled_gif](https://github.com/user-attachments/assets/47afbaf4-9e89-4e60-9bbc-8a46220875b5)
 
-## 📁 Repository layout
+## Repository layout
 
 ```
 .
@@ -29,7 +29,7 @@ for hobby and educational projects requiring direct access to hardware.
 └── simulations/             # project‑specific simulation files
 ```
 
-## 🔧 Features
+## Features
 
 - **MCAL drivers** for GPIO, I²C, USART, timers, ADC, interrupts, …  
 - **ECUAL modules** – ready‑to‑use interfaces for buttons, LCDs, OLEDs,  
@@ -37,7 +37,7 @@ for hobby and educational projects requiring direct access to hardware.
 - Designed to be portable across AVR and PIC micros; adapt by swapping  
   the `mcal/*` folder.
 
-## 🚀 Getting started
+## Getting started
 
 1. Clone the repository:
 
@@ -51,22 +51,21 @@ for hobby and educational projects requiring direct access to hardware.
 3. Compile an example or integrate the drivers into your own project.  
    (No build system included; use your preferred toolchain/IDE for AVR or PIC.)
 
-## 📝 Examples
+## Examples
 
 Checkout the `examples/` directory for small test programs such as  
 `gpio.c` demonstrating basic usage.
 
-## 📦 OLED driver
+## OLED driver
 
 The OLED display implementation lives in `lib/ecual/oled_display`.  
 It includes source, fonts, images and even GIF routines.
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to submit issues or pull requests. Open‑source drivers are  
 always better with more hardware support and documentation!
 
-## ⚖️ License
+## License
 
-This project is released under the [MIT License](LICENSE)  
-(or specify whichever license you intend to use).
+This project is released under the [MIT License](LICENSE) 
