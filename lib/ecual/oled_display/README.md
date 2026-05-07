@@ -1,5 +1,7 @@
 # OLED driver
 
+<img src="/images/batman_logo.jpg" alt="Batman logo" width="400"/>
+
 This file contains the implementation of the ECUAL (External Control and Abstraction Layer) for controlling an OLED display. It provides a set of functions to initialize, configure, and interact with the OLED display using the I2C protocol.
 
 ## Features
@@ -67,8 +69,6 @@ ret |= ecual_oled_display_bit_mapping(&oled_display, (uint8_t*)batman, 128, 64, 
 The output on the screen:
 <br>
 <br>
-
-<img src="/images/batman_logo.jpg" alt="Batman logo" width="400"/>
 
 - You can use [PICSimLab](https://github.com/lcgamboa/picsimlab) for a simulation: [oled_batman_logo.pzw](/simulations/oled_batman_logo.pzw)
 
